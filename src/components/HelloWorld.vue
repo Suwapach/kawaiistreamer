@@ -39,7 +39,7 @@
               variant="flat"   
               @click="mcname()"
               >
-                <h1>Start</h1>
+                Start
               </v-btn>
             </v-col>
           </v-row>
