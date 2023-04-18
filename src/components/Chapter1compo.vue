@@ -12,7 +12,7 @@
             <v-col cols="12"></v-col>
             <v-col cols="12"></v-col>
           <v-row class="justify-center" v-if="componum == 0">
-            <v-col cols="9" xl="8" lg="10">
+            <v-col cols="9" xl="7" lg="10">
                 <div v-if="textstory >= 0 && textstory <= 5">
                     <v-img
                         class="ml-5 mr-5"
