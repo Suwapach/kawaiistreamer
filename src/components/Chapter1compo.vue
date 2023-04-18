@@ -20,7 +20,7 @@
                    
                     </v-img>
                 </div>
-                <Transition name="fade">
+              
                 <div v-if="textstory >= 19 && textstory <= 20">
                     <v-img
      
@@ -32,7 +32,7 @@
                    
                     </v-img>
                 </div>
-                </Transition>
+            
                 
                 <Transition name="fade">
                 <div v-if="textstory == 21">
@@ -1396,17 +1396,17 @@
                                     tongkatsulover  :   น่ารักกก
                                 </p>
                             </div> 
-                            <div v-if="this.chatstory >= 10 && this.chatnum > 24 && this.chatnum < 29">
+                            <div v-if="this.chatstory >= 10 && this.chatnum > 25 && this.chatnum < 30">
                                 <p>
                                     {{ mc_name }}  : 
-                                    <v-row class="ml-5 mt-n6 mb-n6">
+                                    <v-row class="ml-5 mt-n1 mb-n5">
                                     <v-col 
                                     v-for="n in emotesend"
                                     :key="n.emotenum"
                                     class="d-flex child-flex mt-n2"
                                     cols="2"
                             >
-                            
+
                                             <v-img
                                             v-if="n.emotenum == 1 && n.num <9 "
                                                 width="1"
@@ -1510,7 +1510,17 @@
                             class="ml-12 mt-n3"
                             variant="text"
                             icon="mdi-near-me"
+                            v-if="textstory < 18 || emotetext == false"
                             color="secondary"
+                            size="x-large"
+                        >
+                        </v-btn>
+                        <v-btn
+                            class="ml-12 mt-n3"
+                            variant="text"
+                            icon="mdi-near-me"
+                            color="secondary"
+                            v-if="textstory == 18 && emotetext == true"
                             size="x-large"
                             @click = "send()"
                         >
@@ -1528,6 +1538,17 @@
                             color="secondary"
                             size="x-large"
                                 v-bind="props"
+                                v-if="textstory == 18 && emotetext == true"
+                                >
+                                
+                                </v-btn>
+                                <v-btn
+                                class="ml-n5 mr-5 mt-n3"
+                            variant="text"
+                            icon="mdi-emoticon-happy-outline"
+                            color="secondary"
+                            size="x-large"
+                                v-if="textstory <18 || emotetext == false"
                                 >
                                 
                                 </v-btn>
@@ -1872,7 +1893,8 @@
                 hints: true,
                 emotesend: [],
                 emotearraynum : 0,
-                emotetext : true
+                emotetext : true,
+                soundtype: 0,
                 // store : useStore(),
 
             }
@@ -1885,12 +1907,10 @@
                 if(this.textstory == 6){
                     //1
                     this.typepage = 1
-                    setTimeout(() => this.player1.volume = 70, 3000);
-                    setTimeout(() => this.player1.volume = 50, 3000);
-                    setTimeout(() => this.player1.volume = 30, 3000);
-                    setTimeout(() => this.player1.volume = 10, 3000);
+
                     this.player1.pause()
-                    this.player2.play()
+                    this.soundtype = 1
+                    this.playsound()
                     this.chatstory = this.chatstory + 1
                     setTimeout(() => this.sendtext(), 500);
                 }
@@ -1944,7 +1964,8 @@
                     this.typepage = 0
                     this.chatstory = 0
                     this.player2.pause()
-                    this.player1.play()
+                    this.soundtype = 0
+                    this.playsound()
 
                 }
 
@@ -1964,12 +1985,16 @@
                 console.log("test")
                 let a = {emotenum : num,
                         num : this.emotearraynum}
+                if(this.emotearraynum <= 4){
+                    console.log(this.emotearraynum)
+                    
                 this.emotesend.push(a)
                 console.log(this.emotesend)
                 this.emotearraynum = this.emotearraynum + 1
+                }
             },
             send() {
-                this.chatnum = this.chatnum + 2
+                this.chatnum = this.chatnum + 3
                 this.emotetext = false
             },
             chattext() {
@@ -2009,13 +2034,29 @@
                     setTimeout(() => this.sendtext(), 3000);
                 }
             },
-            fadefuntion()
+            loopsound()
             {
-                setTimeout(() => this.story(), 5000);
+                if(this.soundtype == 0){
+                    setTimeout(() => this.playsound(), 125000);
+                }
+                else if(this.soundtype == 1){
+                    setTimeout(() => this.playsound(), 112000);
+                }
+                
+            },
+            playsound(){
+                if(this.soundtype == 0){
+                    this.player1.play()
+                    this.loopsound()
+                }
+                else if(this.soundtype == 1){
+                    this.player2.play()
+                    this.loopsound()
+                }
             }
         },
         created(){
-            this.player1.play()
+            this.playsound()
             // this.player2.pause()
         }
     }
