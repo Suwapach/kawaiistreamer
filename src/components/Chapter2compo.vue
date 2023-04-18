@@ -308,6 +308,7 @@
     <script>
     import { useRouter } from 'vue-router';
     import compo from '@/components/Chapter3compo.vue'
+    import sound1 from '@/assets/song/Labyrinth_In_The_Head.mp3'
     export default {
         name : "Chapter2compo",
         props: { mc_name: String },
@@ -324,6 +325,7 @@
                 postbutton: false,
                 componum: 0,
                 mcname : "",
+                player1 : new Audio(sound1),
                 folders: [
                 {
                     subtitle: 'วันนี้ก็ยังน่ารักเหมือนเดิมจนอยากจะนอนมองทั้งวันเลย＞＜',
@@ -520,7 +522,12 @@
                     this.post = 0
                 }
                 }
+                
             },
+            created(){
+            this.player1.play()
+            // this.player2.pause()
+        }
         }
     }
 
