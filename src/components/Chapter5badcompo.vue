@@ -713,9 +713,9 @@
                         </p>
                     </v-row>
                     <v-row class="justify-center">
-                        <p>
+                        <h2>
                             END
-                        </p>
+                        </h2>
                     </v-row>
                     
                     
@@ -804,6 +804,9 @@
                 this.textstory = this.textstory + 1
                 if(this.textstory == 2 ){
                     this.postbutton = true
+                }
+                else if(this.textstory == 14 ){
+                    this.postbutton = false
                 }
             },
             likefuntion(like){
