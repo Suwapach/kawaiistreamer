@@ -1519,9 +1519,9 @@
     .idfont {
     font-size: 60px;
 } 
-.header {
+/* .header {
     font-size: 80px;
-} 
+}  */
 .idfont2 {
     font-size: 50px;
 } 
