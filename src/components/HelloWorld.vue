@@ -36,6 +36,9 @@
               rounded="pill"
               size="x-large"
               variant="flat"   
+              height="100"
+              width="300"
+
               @click="mcname()"
               >
                 Start
