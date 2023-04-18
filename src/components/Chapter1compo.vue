@@ -8,7 +8,6 @@
         >
       <v-container fluid class="mt-3">
         <v-responsive >
-            
           <v-row class="justify-center" v-if="componum == 0">
             <v-col cols="9" xl="7" lg="7">
                 <div v-if="textstory >= 0 && textstory <= 5">
@@ -69,7 +68,7 @@
                         </v-col>
                     </v-row>
                     <v-row class="justify-center mt-8">
-                        <v-col cols="11" xl="11" lg="1">
+                        <v-col cols="11" xl="11" lg="11">
                             <div v-if="textstory == 0">
                                 <p class="text-secondary idfont font-weight-bold">
                                     19.03 เวลาหลังเลิกเรียนก็เปรียบเสมือนโลกอีกใบของผมที่จะได้ท่องเน็ต หรือเล่นเกม อะไรก็ตามที่ไม่ต้องวุ่นวายกับคนที่เดินผ่านไปผ่านมา...
