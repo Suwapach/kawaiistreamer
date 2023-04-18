@@ -6,49 +6,52 @@
         height="max"
         src="@/assets/background/Background3.jpg"
     >
-  <v-container>
+  <v-container  fluid>
     <v-responsive class="mt-12">
-      <v-row class="justify-start" v-if="componum == 0">
-        <v-col cols="6" class="mt-10">
+      <v-row class="justify-center"  v-if="componum == 0">
+        <v-col cols="5" xl6 class="mt-10">
           <v-img
-            height="400"
+            
             src="@/assets/LogoFinal.png"
           />
-          <v-row class="justify-center mt-1">
+          <v-row class="justify-center mt-12">
+            <v-col class="mt-12" cols="12"></v-col>
             <v-col cols="10">
               <v-text-field
               placeholder="Your name here..."
               v-model="user_name"
               variant="underlined"
               color="secondary"
-              class="text-h5"
+              height="200"
+              
               >
 
               </v-text-field>
             </v-col>
           </v-row>
-          <v-row class="justify-center mt-n5">
+          <v-row class="justify-center mt-5">
             <v-col cols="auto">
               <v-btn
               v-model="startbutton"
               class="text-h4 text-white startbutton"
               rounded="pill"
-              height="80"
-              width="250"
-              variant="flat"    
+              height="200"
+              width="800"
+              variant="flat"   
               @click="mcname()"
               >
-                Start
+                <h1>Start</h1>
               </v-btn>
             </v-col>
           </v-row>
         </v-col>
-        <v-col cols="6">
+        <v-col cols="5" class="">
           <v-img
             src="@/assets/other/Visual_Art_21.png"
           />
         </v-col>
       </v-row>
+      
       
     </v-responsive>
   </v-container>
@@ -90,8 +93,6 @@ export default {
             // ADDmcname("aaaa")
             this.mc_name = this.user_name 
             this.componum = 1
-            this.player1.play()
-            this.player1.pause()
             // this.$router.push('/chapter1')
             }
         }

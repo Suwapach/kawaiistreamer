@@ -6,14 +6,16 @@
             v-if="componum == 0 && typepage == 0"
             src="@/assets/background/Background4.jpg"
         >
-      <v-container>
+      <v-container fluid class="mt-12">
         <v-responsive >
+            <v-col cols="12"></v-col>
+            <v-col cols="12"></v-col>
+            <v-col cols="12"></v-col>
           <v-row class="justify-center" v-if="componum == 0">
-            <v-col cols="10">
+            <v-col cols="9" xl="7" lg="10">
                 <div v-if="textstory >= 0 && textstory <= 5">
                     <v-img
                         class="ml-5 mr-5"
-                        max-height="500"
                         cover
                         src="@/assets/cutsence/CG01.jpg"
                     >
@@ -24,7 +26,6 @@
                 <div v-if="textstory >= 19 && textstory <= 20">
                     <v-img
      
-                        max-height="500"
                                 cover
                                 class="ml-5 mr-5"
                         src="@/assets/other/Untitled-1.png"
@@ -39,7 +40,7 @@
                     
                     <v-img
                     class="ml-5 mr-5"
-                    max-height="500"
+               
                     cover
                         src="@/assets/cutsence/CG02.jpg"
                     >
@@ -50,27 +51,27 @@
             </v-col>
           </v-row>
           <Transition name="fade">
-          <v-row class="justify-center" v-if="this.chatstory == 0 && componum == 0">
-                <v-col cols="6" class="">
+          <v-row class="justify-center mt-8" v-if="this.chatstory == 0 && componum == 0">
+                <v-col cols="8" xl="5" lg="6" class="">
                     <v-img
                     class=""
                             cover
                             src="@/assets/other/Textbox01.png"
                     >
                     <v-row>
-                        <v-col cols="12" class="ml-5 mt-1">
+                        <v-col cols="12" xl="12" lg="12" class="ml-12 mt-1">
                             <div>
-                                <h2 class="text-white" v-if="textstory == 0 || textstory == 1 || textstory == 2 || textstory == 3 || textstory == 5 || textstory == 19 || textstory == 20  || textstory == 21">
+                                <h2 class="text-white header" v-if="textstory == 0 || textstory == 1 || textstory == 2 || textstory == 3 || textstory == 5 || textstory == 19 || textstory == 20  || textstory == 21">
                                     {{ mc_name }}
                                 </h2>
-                                <h2 class="text-white" v-if="textstory == 4 || textstory == 16">
+                                <h2 class="text-white header" v-if="textstory == 4 || textstory == 16">
                                         (คำบรรยาย)
                                 </h2>
                             </div>  
                         </v-col>
                     </v-row>
-                    <v-row class="justify-center">
-                        <v-col cols="11">
+                    <v-row class="justify-center mt-8">
+                        <v-col cols="11" xl="11" lg="1">
                             <div v-if="textstory == 0">
                                 <p class="text-secondary idfont font-weight-bold">
                                     19.03 เวลาหลังเลิกเรียนก็เปรียบเสมือนโลกอีกใบของผมที่จะได้ท่องเน็ต หรือเล่นเกม อะไรก็ตามที่ไม่ต้องวุ่นวายกับคนที่เดินผ่านไปผ่านมา...
@@ -78,12 +79,12 @@
                             </div>    
                             <div v-if="textstory == 1">
                                 <p class="text-secondary idfont font-weight-bold">
-                                    แต่เปลี่ยนมาวุ่นวายกับคนในโลกออนไลน์ที่ใช้ชีวิตกันอยู่แค่ในหน้าจอขนาด 1,980 x 1,080 pixel แทนโลกสามมิติมากกว่า
+                                    แต่เปลี่ยนมาวุ่นวายกับคนในโลกออนไลน์ที่ใช้ชีวิตกันอยู่แค่ในหน้าจอขนาด 1,980 x 1,080 pixel แทนโลกสามมิติมากกว่า<br/> <br/>
                                 </p>
                             </div>    
                             <div v-if="textstory == 2">
                                 <p class="text-secondary idfont font-weight-bold">
-                                    ...?  <br/> <br/>
+                                    ...?  <br/> <br/><br/>
 
                                 </p>
                             </div>
@@ -94,12 +95,12 @@
                             </div> 
                             <div v-if="textstory == 4">
                                 <p class="text-secondary idfont font-weight-bold">
-                                    [เป็นหน้าโซเชียลมีเดียที่กำลังพูดถึงสตรีมเมอร์หน้าใหม่] <br/> <br/>
+                                    [เป็นหน้าโซเชียลมีเดียที่กำลังพูดถึงสตรีมเมอร์หน้าใหม่] <br/> <br/><br/> 
                                 </p>
                             </div>  
                             <div v-if="textstory == 5">
                                 <p class="text-secondary idfont font-weight-bold">
-                                    ลองแวะไปดูสักหน่อยละกัน <br/> <br/>
+                                    ลองแวะไปดูสักหน่อยละกัน <br/> <br/><br/>
                                 </p>
                             </div>                        
                             <div v-if="textstory == 19">
@@ -119,675 +120,66 @@
                             </div> 
                         </v-col>
                     </v-row>
-                    <v-row class="justify-end">
+                    <v-row class="justify-end ">
                         <v-col cols="12"></v-col>
+                        <v-col cols="12"></v-col>
+                        <v-col cols="12"></v-col>
+          
+              
                         <v-btn
-                        v-if="textstory != 19"
-                            class="mt-n3 mr-5"
+                        
+                            class="mr-12"
                             variant="text"
                             icon="mdi-chevron-right"
                             color="primary"
+
                             @click = "story()"
                         >
+                        <v-icon size="x-large">mdi-chevron-right</v-icon>
                         </v-btn>
                         <v-btn
                             v-if="textstory == 19"
-                            class="mt-n8 mr-5"
+                            class="mr-12"
                             variant="text"
                             icon="mdi-chevron-right"
                             color="primary"
+                            size="x-large"
                             @click = "story()"
                         >
+                        <v-icon size="x-large">mdi-chevron-right</v-icon>
                         </v-btn>
                     </v-row>
                     
                     </v-img>
                         
                     </v-col>
-                <v-col cols="3" class="">
+                <v-col cols="2" class="">
                     <v-img
-                    height="200"
+                    
+                    max-height="630"
                     src="@/assets/other/Spritebox_Small.png"
                     >
                         <div v-if="textstory == 0 || textstory == 4 || textstory == 6 || textstory == 7 || textstory == 8 || textstory == 9 || textstory == 12 || textstory == 13 || textstory == 14 || textstory == 15  || textstory == 16 || textstory == 19 ">
                             <v-img
-                                height="200"
+                            max-height="630"
                                 src="@/assets/mc/MC00.png"
                             />
                         </div>
                         <div v-if="textstory == 5 || textstory == 17 || textstory == 18 || textstory == 20 || textstory == 21">
                             <v-img
-                                height="200"
+                            max-height="630"
                                 src="@/assets/mc/MC01.png"
                             />
                         </div>
                         <div v-if="textstory == 1 || textstory == 2 || textstory == 3 || textstory == 10">
                             <v-img
-                                height="200"
+                            max-height="630"
                                 src="@/assets/mc/MC05.png"
                             />
                         </div>
                         <div v-if="textstory == 11">
                             <v-img
-                                height="200"
-                                src="@/assets/mc/MC06.png"
-                            />
-                        </div>
-                    </v-img>
-                </v-col>
-              </v-row>
-              </Transition>
-              <Transition name="fade">
-              <v-row class="justify-center" v-if="this.chatstory >= 1 && componum == 0">
-                <v-col cols="6" class="">
-                    <v-img
-                            height="200"
-                            src="@/assets/other/Commentbox_2.png"
-                    >
-                    <v-row>
-                        <v-col cols="12" class="ml-5 mt-1">
-                            <div>
-                                <h2 class="text-white">
-                                    Chat Comment
-                                </h2>
-                            </div>  
-                        </v-col>
-                    </v-row>
-                    <v-row class="justify-center mt-n3">
-                        <v-col cols="11">
-                            <div v-if="this.chatstory ==1 || this.chatstory >= 2 && this.chatnum == 0">
-                                <p>
-                                    <br/>
-                                </p>
-                            </div>  
-                            <div v-if="this.chatstory ==1 || this.chatstory >= 2 && this.chatnum == 0">
-                                <p>
-                                    <br/>
-                                </p>
-                            </div> 
-                            <div v-if="this.chatstory ==1 || this.chatstory >= 2 && this.chatnum == 0">
-                                <p>
-                                    <br/>
-                                </p>
-                            </div> 
-                            <div v-if="this.chatstory ==1 || this.chatstory >= 2 && this.chatnum == 0">
-                                <p>
-                                    <br/>
-                                </p>
-                            </div> 
-
-                            <div v-if="this.chatstory >= 2 && this.chatnum > 0 && this.chatnum < 5">
-                                <p>
-                                    มะง่วง  :   มาแล้วๆๆๆๆ
-                                </p>
-                            </div> 
-                            <div v-if="this.chatstory == 2 && this.chatnum > 0 && this.chatnum < 2">
-                                <p>
-                                    <br/>
-                                </p>
-                            </div> 
-                            <div v-if="this.chatstory == 2 && this.chatnum > 0 && this.chatnum < 2">
-                                <p>
-                                    <br/>
-                                </p>
-                            </div> 
-                            <div v-if="this.chatstory == 2 && this.chatnum > 0 && this.chatnum < 2">
-                                <p>
-                                    <br/>
-                                </p>
-                            </div>    
-                            <div v-if="this.chatstory >= 2 && this.chatnum > 1 && this.chatnum < 6">
-                                <p>
-                                    น้ำปลาหวาน  :   konkonkonnnnn
-                                </p>
-                            </div> 
-                            <div v-if="this.chatstory == 2 && this.chatnum > 1 && this.chatnum < 3">
-                                <p>
-                                    <br/>
-                                </p>
-                            </div>
-                            <div v-if="this.chatstory == 2 && this.chatnum > 1 && this.chatnum < 3">
-                                <p>
-                                    <br/>
-                                </p>
-                            </div>    
-                            <div v-if="this.chatstory >= 2 && this.chatnum > 2 && this.chatnum < 7">
-                                <p>
-                                    หมึกผัดไข่เค็ม  :   มายังอะ
-
-                                </p>
-                            </div>
-                            <div v-if="this.chatstory == 2 && this.chatnum > 2 && this.chatnum < 5">
-                                <p>
-                                    <br/>
-                                </p>
-                            </div> 
-                            
-                            
-                            <div v-if="this.chatstory >= 3 && this.chatnum > 3 && this.chatnum < 8">
-                                <p>
-                                    omeow_11  :   คนดูเยอะจัง
-                                </p>
-                            </div> 
-                            <div v-if="this.chatstory >= 3 && this.chatnum > 4 && this.chatnum < 9">
-                                <p>
-                                    babyblue  :   สวัสดีครับ
-                                </p>
-                            </div>  
-                            <div v-if="this.chatstory >= 4 && this.chatnum > 5 && this.chatnum < 10">
-                                <p>
-                                    ringo__  :   ยินดีที่ได้รู้จักน้า♥♥
-                                </p>
-                            </div>                        
-                            <div v-if="this.chatstory >= 5 && this.chatnum > 6 && this.chatnum < 11">
-                                <p>
-                                    pewpew777  :   ไม่ลอง...หน่อยหรอ?
-                                </p>
-                            </div>
-                            <div v-if="this.chatstory >= 5 && this.chatnum > 7 && this.chatnum < 12">
-                                <p>
-                                    tsisonfire  :   คิดถึงจังเลย♥♥♥
-                                </p>
-                            </div> 
-                            <div v-if="this.chatstory >= 5 && this.chatnum > 8 && this.chatnum < 13">
-                                <p>
-                                    unchidaaaaaa  :   ไม่ชอบพวกมาดูใหม่เลย 😠😠
-                                </p>
-                            </div> 
-                            <div v-if="this.chatstory >= 6 && this.chatnum > 9 && this.chatnum < 14">
-                                <p>
-                                    unchidaaaaaa  :   วันนี้ก็น่ารักอีกแล้ว
-                                </p>
-                            </div> 
-                            <div v-if="this.chatstory >= 6 && this.chatnum > 10 && this.chatnum < 15">
-                                <p>
-                                    ringo__  :   ลองทำตามก็ไม่แย่นะ?
-                                </p>
-                            </div>
-                            <div v-if="this.chatstory >= 7 && this.chatnum > 11 && this.chatnum < 16">
-                                <p>
-                                    JellyBear  :   วันนี้สตรีมเมอร์จังน่ารักจังเลยยย
-                                </p>
-                            </div>
-                            <div v-if="this.chatstory >= 7 && this.chatnum > 12 && this.chatnum < 17">
-                                <p>
-                                    kusogaki1234  :   คาสุจังลองทำท่าน่ารักให้ดูหน่อยยย
-                                </p>
-                            </div>
-                            <div v-if="this.chatstory >= 8 && this.chatnum > 13 && this.chatnum < 18">
-                                <p>
-                                    puropuchi  :   ดูครั้งแรกครับ
-                                </p>
-                            </div>
-                            <div v-if="this.chatstory >= 8 && this.chatnum > 14 && this.chatnum < 19">
-                                <p>
-                                    anony  :   หวังว่าจะอยู่ได้นานนะ
-                                </p>
-                            </div>
-                            <div v-if="this.chatstory >= 8 && this.chatnum > 15 && this.chatnum < 20">
-                                <p>
-                                    ต้นหอมย่าง  :   ปกติมาดูไม่ทันแต่วันนี้มาทัน ดีใจจังงง
-                                </p>
-                            </div>
-                            <div v-if="this.chatstory >= 9 && this.chatnum > 16 && this.chatnum < 21">
-                                <p>
-                                    ต้นหอมย่าง  :   วันนี้จะทำอะไรหรอ ?
-                                </p>
-                            </div>
-                            <div v-if="this.chatstory >= 9 && this.chatnum > 17 && this.chatnum < 22">
-                                <p>
-                                    เต้าหู้ปลา  :   คาสุุจังทำไมไม่ลองทำตามที่บอกอะ
-                                </p>
-                            </div>
-                            <div v-if="this.chatstory >= 9 && this.chatnum > 18 && this.chatnum < 23">
-                                <p>
-                                    tongkatsulover  :   น่ารักตั้งแต่เริ่มเลย
-                                </p>
-                            </div>
-                            <div v-if="this.chatstory >= 10 && this.chatnum > 19 && this.chatnum < 24">
-                                <p>
-                                    puropuchi  :   วันนี้สตรีมเมอร์จังน่ารักจังเลยยย
-                                </p>
-                            </div>
-                            <div v-if="this.chatstory >= 10 && this.chatnum > 20 && this.chatnum < 25">
-                                <p>
-                                    มะง่วง  :   โดโมะคาสุจัง😍😍
-                                </p>
-                            </div>
-                            <div v-if="this.chatstory >= 10 && this.chatnum > 21 && this.chatnum < 26">
-                                <p>
-                                    มะง่วง  :   วันนี้คนดูเยอะม้าก
-                                </p>
-                            </div> 
-                            <div v-if="this.chatstory >= 10 && this.chatnum > 22 && this.chatnum < 27">
-                                <p>
-                                    tongkatsulover  :   น่ารักกก
-                                </p>
-                            </div> 
-                            <div v-if="this.chatstory >= 10 && this.chatnum > 24 && this.chatnum < 29">
-                                <p>
-                                    {{ mc_name }}  : 
-                                    <v-row class="ml-5 mt-n6 mb-n6">
-                                    <v-col 
-                                    v-for="n in emotesend"
-                                    :key="n.emotenum"
-                                    class="d-flex child-flex mt-n2"
-                                    cols="2"
-                            >
-                            
-                                            <v-img
-                                            v-if="n.emotenum == 1 && n.num <9 "
-                                                width="1"
-                                                src="@/assets/emote/emote01.png"       
-                                              
-                                            >
-                    
-                                            </v-img>
-                                            <v-img
-                                            v-if="n.emotenum == 2  && n.num <9"
-                                                width="1"
-                                                src="@/assets/emote/emote02.png"       
-                                              
-                                            >
-                    
-                                            </v-img>
-                                            <v-img
-                                            v-if="n.emotenum == 3  && n.num <9"
-                                                width="1"
-                                                src="@/assets/emote/emote03.png"       
-                                              
-                                            >
-                    
-                                            </v-img>
-                                            <v-img
-                                            v-if="n.emotenum == 4  && n.num <9"
-                                                width="1"
-                                                src="@/assets/emote/emote04.png"       
-                                               
-                                            >
-                    
-                                            </v-img>
-                                            <v-img
-                                            v-if="n.emotenum == 5  && n.num <9"
-                                                width="1"
-                                                src="@/assets/emote/emote05.png"       
-                                               
-                                            >
-                    
-                                            </v-img>
-                                            <v-img
-                                            v-if="n.emotenum == 6  && n.num <9"
-                                                width="1"
-                                                src="@/assets/emote/emote06.png"       
-                                              
-                                            >
-                    
-                                            </v-img>
-                                            <v-img
-                                            v-if="n.emotenum == 7  && n.num <9"
-                                                width="1"
-                                                src="@/assets/emote/emote07.png"       
-                                               
-                                            >
-                    
-                                            </v-img>
-                                            <v-img
-                                            v-if="n.emotenum == 8  && n.num <9"
-                                                width="1"
-                                                src="@/assets/emote/emote08.png"       
-                                               
-                                            >
-                    
-                                            </v-img>
-                                            <v-img
-                                            v-if="n.emotenum == 9  && n.num <9"
-                                                width="1"
-                                                src="@/assets/emote/emote09.png"       
-                                               
-                                            >
-                    
-                                            </v-img>
-                                            <v-img
-                                            v-if="n.emotenum == 10  && n.num <9"
-                                                width="1"
-                                                src="@/assets/emote/emote10.png"       
-                                               
-                                            >
-                    
-                                            </v-img>
-                                            <v-img
-                                            v-if="n.emotenum == 11  && n.num <9"
-                                                width="1"
-                                                src="@/assets/emote/emote11.png"       
-                                               
-                                            >
-                    
-                                            </v-img>
-                                            
-                            </v-col>
-                        </v-row> 
-                                </p>
-                            </div> 
-                        </v-col>
-                    </v-row>
-                    <v-row class="justify-end" align-self="end">
-                      
-                   
-                       
-                        <v-btn
-                            class="ml-12 mt-n3"
-                            variant="text"
-                            icon="mdi-near-me"
-                            color="secondary"
-                            size="x-large"
-                            @click = "send()"
-                        >
-                        </v-btn>
-                        <v-menu
-                            v-model="menu"
-                            :close-on-content-click="false"
-                            location="top"
-                        >
-                            <template v-slot:activator="{ props }">
-                                <v-btn
-                                class="ml-n5 mr-5 mt-n3"
-                            variant="text"
-                            icon="mdi-emoticon-happy-outline"
-                            color="secondary"
-                            size="x-large"
-                                v-bind="props"
-                                >
-                                
-                                </v-btn>
-                            </template>
-
-                        <v-card min-width="300" class="ml-3 mr-3 mt-3">
-                    
-                                <v-row class="mt-1 ml-1 mr-1">
-                                    <v-col    
-                                    class="d-flex child-flex bg-startbuttonv"
-                                    cols="3"
-                                    >
-                                     
-                                            <v-img
-                                                width="1"
-                                                src="@/assets/emote/emote01.png"       
-                                               @click = " sendemote(1)"
-                                            >
-                    
-                                            </v-img>
-                                    </v-col>
-                                    <v-col    
-                                    class="d-flex child-flex bg-startbutton"
-                                    cols="3"
-                                    >
-                                    
-                                            <v-img
-                                                width="1"
-                                               
-                                                src="@/assets/emote/emote02.png"       
-                                               @click = " sendemote(2)"
-                                            >
-                    
-                                            </v-img>
-                                    </v-col>
-                                    <v-col    
-                                    class="d-flex child-flex bg-startbutton"
-                                    cols="3"
-                                    >
-                                    
-                                            <v-img
-                                                width="1"
-                                                src="@/assets/emote/emote03.png"       
-                                               @click = " sendemote(3)"
-                                            >
-                    
-                                            </v-img>
-                                    </v-col>
-                                    <v-col    
-                                    class="d-flex child-flex bg-startbutton"
-                                    cols="3"
-                                    >
-                                    
-                                            <v-img
-                                                width="1"
-
-                                                src="@/assets/emote/emote04.png"       
-                                               @click = " sendemote(4)"
-                                            >
-                    
-                                            </v-img>
-                                    </v-col>
-                                    <v-col    
-                                    class="d-flex child-flex bg-startbutton"
-                                    cols="3"
-                                    >
-                                    
-                                            <v-img
-                                                width="1"
-                                                src="@/assets/emote/emote05.png"       
-                                               @click = " sendemote(5)"
-                                            >
-                    
-                                            </v-img>
-                                    </v-col>
-                                    <v-col    
-                                    class="d-flex child-flex bg-startbutton"
-                                    cols="3"
-                                    >
-                                    
-                                            <v-img
-                                                width="1"
-                                                src="@/assets/emote/emote06.png"       
-                                               @click = " sendemote(6)"
-                                            >
-                    
-                                            </v-img>
-                                    </v-col>
-                                    <v-col    
-                                    class="d-flex child-flex bg-startbutton"
-                                    cols="3"
-                                    >
-                                    
-                                            <v-img
-                                                width="1"
-                                                src="@/assets/emote/emote07.png"       
-                                               @click = " sendemote(7)"
-                                            >
-                    
-                                            </v-img>
-                                    </v-col>
-                                    <v-col    
-                                    class="d-flex child-flex bg-startbutton"
-                                    cols="3"
-                                    >
-                                    
-                                            <v-img
-                                                width="1"
-                                                src="@/assets/emote/emote08.png"       
-                                               @click = " sendemote(8)"
-                                            >
-                    
-                                            </v-img>
-                                    </v-col>
-                                    <v-col    
-                                    class="d-flex child-flex bg-startbutton"
-                                    cols="3"
-                                    >
-                                    
-                                            <v-img
-                                                width="1"
-                                                src="@/assets/emote/emote09.png"       
-                                               @click = " sendemote(9)"
-                                            >
-                    
-                                            </v-img>
-                                    </v-col>
-                                    <v-col    
-                                    class="d-flex child-flex bg-startbutton"
-                                    cols="3"
-                                    >
-                                    
-                                            <v-img
-                                                width="1"
-                                                src="@/assets/emote/emote10.png"       
-                                               @click = " sendemote(10)"
-                                            >
-                    
-                                            </v-img>
-                                    </v-col>
-                                    <v-col    
-                                    class="d-flex child-flex bg-startbutton"
-                                    cols="3"
-                                    >
-                                    
-                                            <v-img
-                                                width="1"
-                                                src="@/assets/emote/emote11.png"       
-                                               @click = " sendemote(11)"
-                                            >
-                    
-                                            </v-img>
-                                    </v-col>
-                                </v-row>
-                             
-                      
-        
-
-      </v-card>
-            </v-menu>
-
-                    </v-row>
-                    <v-row class="justify-start mt-n12 ml-2" v-if="this.emotetext == true">
-                      
-                            <v-col 
-                                    v-for="n in emotesend"
-                                    :key="n.emotenum"
-                                    class="d-flex child-flex mt-n2"
-                                    cols="1"
-                            >
-                            
-                                            <v-img
-                                            v-if="n.emotenum == 1 && n.num <9 "
-                                                width="1"
-                                                src="@/assets/emote/emote01.png"       
-                                              
-                                            >
-                    
-                                            </v-img>
-                                            <v-img
-                                            v-if="n.emotenum == 2  && n.num <9"
-                                                width="1"
-                                                src="@/assets/emote/emote02.png"       
-                                              
-                                            >
-                    
-                                            </v-img>
-                                            <v-img
-                                            v-if="n.emotenum == 3  && n.num <9"
-                                                width="1"
-                                                src="@/assets/emote/emote03.png"       
-                                              
-                                            >
-                    
-                                            </v-img>
-                                            <v-img
-                                            v-if="n.emotenum == 4  && n.num <9"
-                                                width="1"
-                                                src="@/assets/emote/emote04.png"       
-                                               
-                                            >
-                    
-                                            </v-img>
-                                            <v-img
-                                            v-if="n.emotenum == 5  && n.num <9"
-                                                width="1"
-                                                src="@/assets/emote/emote05.png"       
-                                               
-                                            >
-                    
-                                            </v-img>
-                                            <v-img
-                                            v-if="n.emotenum == 6  && n.num <9"
-                                                width="1"
-                                                src="@/assets/emote/emote06.png"       
-                                              
-                                            >
-                    
-                                            </v-img>
-                                            <v-img
-                                            v-if="n.emotenum == 7  && n.num <9"
-                                                width="1"
-                                                src="@/assets/emote/emote07.png"       
-                                               
-                                            >
-                    
-                                            </v-img>
-                                            <v-img
-                                            v-if="n.emotenum == 8  && n.num <9"
-                                                width="1"
-                                                src="@/assets/emote/emote08.png"       
-                                               
-                                            >
-                    
-                                            </v-img>
-                                            <v-img
-                                            v-if="n.emotenum == 9  && n.num <9"
-                                                width="1"
-                                                src="@/assets/emote/emote09.png"       
-                                               
-                                            >
-                    
-                                            </v-img>
-                                            <v-img
-                                            v-if="n.emotenum == 10  && n.num <9"
-                                                width="1"
-                                                src="@/assets/emote/emote10.png"       
-                                               
-                                            >
-                    
-                                            </v-img>
-                                            <v-img
-                                            v-if="n.emotenum == 11  && n.num <9"
-                                                width="1"
-                                                src="@/assets/emote/emote11.png"       
-                                               
-                                            >
-                    
-                                            </v-img>
-                                            
-                            </v-col>
-                            </v-row>
-                    
-                    </v-img>
-                        
-                    </v-col>
-                <v-col cols="3" class="">
-                    <v-img
-                    height="200"
-                    src="@/assets/other/Spritebox_Small.png"
-                    >
-                        <div v-if="textstory == 0 || textstory == 4 || textstory == 6 || textstory == 7 || textstory == 8 || textstory == 9 || textstory == 12 || textstory == 13 || textstory == 14 || textstory == 15  || textstory == 16 || textstory == 19 ">
-                            <v-img
-                                height="200"
-                                src="@/assets/mc/MC00.png"
-                            />
-                        </div>
-                        <div v-if="textstory == 5 || textstory == 17 || textstory == 18 || textstory == 20 || textstory == 21">
-                            <v-img
-                                height="200"
-                                src="@/assets/mc/MC01.png"
-                            />
-                        </div>
-                        <div v-if="textstory == 1 || textstory == 2 || textstory == 3 || textstory == 10">
-                            <v-img
-                                height="200"
-                                src="@/assets/mc/MC05.png"
-                            />
-                        </div>
-                        <div v-if="textstory == 11">
-                            <v-img
-                                height="200"
+                            max-height="630"
                                 src="@/assets/mc/MC06.png"
                             />
                         </div>
@@ -809,20 +201,31 @@
             v-if="componum == 0 && typepage == 1"
             src="@/assets/background/Background4.jpg"
         >
-      <v-container>
+      <v-container fluid class="mt-12">
         <v-responsive >
+            <v-col cols="12"></v-col>
+            <v-col cols="12"></v-col>
+            <v-col cols="12"></v-col>
           <v-row class="justify-center" v-if="componum == 0">
-            <v-col cols="10">
+            <v-col cols="8" xl="7">
                 <Transition name="fade">
                 <div v-if="textstory >= 6 && textstory <= 18">
                     <v-img
-                    max-height="500"
+                    
                                 cover
                                 class="ml-5 mr-5"   
                         src="@/assets/background/BG01_Streamerroom1.jpg"
                     >
                     <div v-if="textstory == 6">
                         <v-col cols="12" class="mt-12"></v-col>
+                            <v-col cols="12" class="mt-12"></v-col>
+                            <v-col cols="12" class="mt-12"></v-col>
+                            <v-col cols="12" class="mt-12"></v-col>
+                            <v-col cols="12" class="mt-12"></v-col>
+                            <v-col cols="12" class="mt-12"></v-col>
+                            <v-col cols="12" class="mt-12"></v-col>
+                            <v-col cols="12" class="mt-12"></v-col>
+                            <v-col cols="12" class="mt-12"></v-col>
                             <v-col cols="12" class="mt-12"></v-col>
                             <v-col cols="12" class="mt-12"></v-col>
                             <v-col cols="12" class="mt-12"></v-col>
@@ -837,16 +240,16 @@
                                         <v-row>
                                             <v-col cols="12" class="ml-5">
                                                 <div>
-                                                    <h3 class="text-white mt-1 mb-n3" >
+                                                    <h3 class="text-white header2 mb-n3 ml-5" >
                                         (คำบรรยาย)
                                 </h3>
                                                 </div>  
                                             </v-col>
                                         </v-row>
                                         <v-row class="justify-center">
-                                            <v-col cols="11"  class="mt-3">
+                                            <v-col cols="11"  class="mt-5">
                                                 <div v-if="textstory == 6">
-                                                    <p class="text-secondary idfont font-weight-bold">
+                                                    <p class="text-secondary idfont2 font-weight-bold">
                                                         [หน้าจอปรากฎรูปเด็กสาวผมสีบลอนด์ ...ที่ดูก็รู้ว่าเป็นวิกผม กับหน้าตาที่ถูกแต่งแต้มด้วยเครื่องสำอางสไตล์แฟชั่นจิไรเคย์จากชุดแบรนด์ดังราคาแพงที่สาวๆนิยม]
                                                     </p>
                                                 </div>
@@ -855,8 +258,9 @@
                                         </v-row>
                                         <v-row class="justify-end">
                                         <v-col cols="12"></v-col>
+                                        <v-col cols="12"></v-col>
                                         <v-btn
-                                            class="mt-n10 mr-5"
+                                            class="mr-12"
                                             variant="text"
                                             icon="mdi-chevron-right"
                                             color="primary"
@@ -872,10 +276,18 @@
 
                         <v-img
                             v-if="this.textstory == 8 || this.textstory == 10 || this.textstory == 11 || this.textstory == 14 || this.textstory == 16"
-                            height="470"
+                            max-height="1390"
                             
                             src="@/assets/kwaii/KS00.gif"
                         >
+                        <v-col cols="12" class="mt-12"></v-col>
+                            <v-col cols="12" class="mt-12"></v-col>
+                            <v-col cols="12" class="mt-12"></v-col>
+                            <v-col cols="12" class="mt-12"></v-col>
+                            <v-col cols="12" class="mt-12"></v-col>
+                            <v-col cols="12" class="mt-12"></v-col>
+                            <v-col cols="12" class="mt-12"></v-col>
+                            <v-col cols="12" class="mt-12"></v-col>
                             <v-col cols="12" class="mt-12"></v-col>
                             <v-col cols="12" class="mt-12"></v-col>
                             <v-col cols="12" class="mt-12"></v-col>
@@ -890,13 +302,13 @@
                                         <v-row>
                                             <v-col cols="12" class="ml-5">
                                                 <div>
-                                                    <h3 class="text-white mt-1 mb-n3" v-if="textstory == 8 || textstory == 14">
+                                                    <h3 class="text-white header2 mb-n3 ml-5" v-if="textstory == 8 || textstory == 14">
                                                         Kawaii Streamer
                                                     </h3>
-                                                    <h3 class="text-white mt-1 mb-n3" v-if="textstory == 10">
+                                                    <h3 class="text-white header2 ml-5 mb-n3" v-if="textstory == 10">
                                                         {{ mc_name }}
                                                     </h3>
-                                                    <h3 class="text-white mt-1 mb-n3" v-if="textstory == 11 || textstory == 16">
+                                                    <h3 class="text-white header2  ml-5 mb-n3" v-if="textstory == 11 || textstory == 16">
                                                         (คำบรรยาย)
                                                     </h3>
                                                 </div>  
@@ -905,41 +317,42 @@
                                         <v-row class="justify-center">
                                             <v-col cols="11"  class="mt-3">
                                                 <div v-if="textstory == 8">
-                                                    <p class="text-secondary idfont font-weight-bold">
-                                                        หืม ไม่ต้องเรียกชื่อช่องเต็มยศขนาดนั้นก็ได้ <br/>  <br/>
+                                                    <p class="text-secondary idfont2 font-weight-bold">
+                                                        หืม ไม่ต้องเรียกชื่อช่องเต็มยศขนาดนั้นก็ได้ <br/>  <br/>  
                                                     </p>
                                                 </div>
                                             
                                                 <div v-if="textstory == 10">
-                                                    <p class="text-secondary idfont font-weight-bold">
-                                                        โดเนทสักหน่อยดีหรือเปล่านะ...? <br/>  <br/>
+                                                    <p class="text-secondary idfont2 font-weight-bold">
+                                                        โดเนทสักหน่อยดีหรือเปล่านะ...? <br/>  <br/> 
                                                     </p>
                                                 </div> 
 
                                                 <div v-if="textstory == 11">
-                                                    <p class="text-secondary idfont font-weight-bold">
-                                                        [หน้าจอขึ้นข้อความ คุณเต้าหู้ปลา ได้ส่งโดเนทจำนวน xxx] <br/>  <br/>
+                                                    <p class="text-secondary idfont2 font-weight-bold">
+                                                        [หน้าจอขึ้นข้อความ คุณเต้าหู้ปลา ได้ส่งโดเนทจำนวน xxx] <br/>  <br/>  
                                                     </p>
                                                 </div> 
                                               
                                                 <div v-if="textstory == 14">
-                                                    <p class="text-secondary idfont font-weight-bold">
-                                                        สำหรับคนที่มาใหม่ลองอ่านข้อควรปฏิบัติด้านล่างก่อนก็ได้นะ ค่อยๆคอมเมนต์กันอย่างสุภาพด้วย! <br/> <br/>
+                                                    <p class="text-secondary idfont2 font-weight-bold">
+                                                        สำหรับคนที่มาใหม่ลองอ่านข้อควรปฏิบัติด้านล่างก่อนก็ได้นะ ค่อยๆคอมเมนต์กันอย่างสุภาพด้วย! <br/> <br/>  
                                                     </p>
                                                 </div> 
 
                                                 <div v-if="textstory == 16">
                                                     <p class="text-secondary idfont font-weight-bold">
-                                                        [ช่องคอมเม้นบางส่วนด่าทอเต้าหู้ปลา บางส่วนเห็นด้วยให้ทำตามเต้าหู้ปลาบอกเพราะอยากเห็นเซอร์วิส]<br/> <br/>
+                                                        [ช่องคอมเม้นบางส่วนด่าทอเต้าหู้ปลา บางส่วนเห็นด้วยให้ทำตามเต้าหู้ปลาบอกเพราะอยากเห็นเซอร์วิส]<br/> 
                                                     </p>
                                                 </div>
                                             
                                             </v-col>
                                         </v-row>
                                         <v-row class="justify-end">
+                                            <v-col cols="12"></v-col>
                                         <v-col cols="12"></v-col>
                                         <v-btn
-                                            class="mt-n10 mr-5"
+                                            class=" mt-n10 mr-12"
                                             variant="text"
                                             icon="mdi-chevron-right"
                                             color="primary"
@@ -953,10 +366,11 @@
                         </v-img>
                         <div v-if="this.textstory == 15">
                             <v-row class="justify-center">
-                                
-                                <v-col cols="10" class="">
+                                <v-col cols="12"></v-col>
+                                <v-col cols="12"></v-col>
+                                <v-col cols="10" class="mt-12">
                                     <v-img
-                                    width="800"
+                                    
                                     src="@/assets/other/pop-upguidelines.png"
                                     />
                                 </v-col>
@@ -964,10 +378,11 @@
                             <v-row class="justify-end">
                                         <v-col cols="12"></v-col>
                                         <v-btn
-                                            class="mt-n12 mr-8"
+                                            class=" mr-12"
                                             variant="text"
                                             icon="mdi-chevron-right-circle"
                                             color="white"
+                                            size="x-large"
                                             @click = "story()"
                                         >
                                             
@@ -978,13 +393,22 @@
             
                         <v-img
                             v-if="this.textstory == 7"
-                            height="470"
+                            max-height="1390"
                             src="@/assets/kwaii/KS09.gif"
                         >
+                        <v-col cols="12" class="mt-12"></v-col>
                             <v-col cols="12" class="mt-12"></v-col>
                             <v-col cols="12" class="mt-12"></v-col>
                             <v-col cols="12" class="mt-12"></v-col>
                             <v-col cols="12" class="mt-12"></v-col>
+                            <v-col cols="12" class="mt-12"></v-col>
+                            <v-col cols="12" class="mt-12"></v-col>
+                            <v-col cols="12" class="mt-12"></v-col>
+                            <v-col cols="12" class="mt-12"></v-col>
+                            <v-col cols="12" class="mt-12"></v-col>
+                            <v-col cols="12" class="mt-12"></v-col>
+                            <v-col cols="12" class="mt-12"></v-col>
+                            
                       
                             <v-row class="justify-center">
                                 <v-col cols="11">
@@ -994,7 +418,7 @@
                                         <v-row>
                                             <v-col cols="12" class="ml-5">
                                                 <div>
-                                                    <h3 class="text-white mt-1 mb-n3" v-if="textstory == 7">
+                                                    <h3 class="text-white header2 ml-5 mb-n3" v-if="textstory == 7">
                                                         Kawaii Streamer
                                                     </h3>
                                                 </div>  
@@ -1003,8 +427,8 @@
                                         <v-row class="justify-center">
                                             <v-col cols="11"  class="mt-3">
                                                 <div v-if="textstory == 7">
-                                                    <p class="text-secondary idfont font-weight-bold">
-                                                        Hi Hiii～Kawaii Streamerเองค่า วันนี้เหมือนคนดูจะเยอะขึ้นกว่าเดิมหรือเปล่าเนี่ย สวัสดีคุณเต้าหู้ปลา คุณหมึกผัดไข่เค็ม คุณมะง่วงด้วยน้า มาใหม่ใช่ม้า? ฝากตัวด้วยน้า
+                                                    <p class="text-secondary idfont2 font-weight-bold">
+                                                        Hi Hiii～Kawaii Streamerเองค่า วันนี้เหมือนคนดูจะเยอะขึ้นกว่าเดิมหรือเปล่าเนี่ย สวัสดีคุณเต้าหู้ปลา คุณหมึกผัดไข่เค็ม คุณมะง่วงด้วยน้า มาใหม่ใช่ม้า? ฝากตัวด้วยน้า <br/><br/>
                                                     </p>
                                                 </div> 
                                                 
@@ -1013,7 +437,7 @@
                                         <v-row class="justify-end">
                                         <v-col cols="12"></v-col>
                                         <v-btn
-                                            class="mt-n10 mr-5"
+                                            class="mt-n10 mr-12"
                                             variant="text"
                                             icon="mdi-chevron-right"
                                             color="primary"
@@ -1028,9 +452,17 @@
                         </v-img>
                         <v-img
                         v-if="this.textstory == 12"
-                            height="470"
+                        max-height="1390"
                             src="@/assets/kwaii/KS06.gif"
                         >
+                        <v-col cols="12" class="mt-12"></v-col>
+                            <v-col cols="12" class="mt-12"></v-col>
+                            <v-col cols="12" class="mt-12"></v-col>
+                            <v-col cols="12" class="mt-12"></v-col>
+                            <v-col cols="12" class="mt-12"></v-col>
+                            <v-col cols="12" class="mt-12"></v-col>
+                            <v-col cols="12" class="mt-12"></v-col>
+                            <v-col cols="12" class="mt-12"></v-col>
                             <v-col cols="12" class="mt-12"></v-col>
                             <v-col cols="12" class="mt-12"></v-col>
                             <v-col cols="12" class="mt-12"></v-col>
@@ -1044,7 +476,7 @@
                                         <v-row>
                                             <v-col cols="12" class="ml-5">
                                                 <div>
-                                                    <h3 class="text-white mt-1 mb-n3" v-if="textstory == 12">
+                                                    <h3 class="text-white header2 ml-5 mb-n3" v-if="textstory == 12">
                                                         Kawaii Streamer
                                                     </h3>
                                                    
@@ -1055,7 +487,7 @@
                                             <v-col cols="11"  class="mt-3">
                 
                                                 <div v-if="textstory == 12">
-                                                    <p class="text-secondary idfont font-weight-bold">
+                                                    <p class="text-secondary idfont2 font-weight-bold">
                                                         ว้าย ตกใจหมดเลย ยังไงก็ยังไม่ชินกับเสียงแจ้งเตือนโดเนทอยู่ดีอ่า <br/><br/>
                                                     </p>
                                                 </div> 
@@ -1066,7 +498,7 @@
                                         <v-row class="justify-end">
                                         <v-col cols="12"></v-col>
                                         <v-btn
-                                            class="mt-n10 mr-5"
+                                            class="mt-n10 mr-12"
                                             variant="text"
                                             icon="mdi-chevron-right"
                                             color="primary"
@@ -1080,9 +512,17 @@
                         </v-img>
                         <v-img
                             v-if="this.textstory == 13"
-                            height="470"
+                            max-height="1390"
                             src="@/assets/kwaii/KS05.gif"
                         >
+                        <v-col cols="12" class="mt-12"></v-col>
+                            <v-col cols="12" class="mt-12"></v-col>
+                            <v-col cols="12" class="mt-12"></v-col>
+                            <v-col cols="12" class="mt-12"></v-col>
+                            <v-col cols="12" class="mt-12"></v-col>
+                            <v-col cols="12" class="mt-12"></v-col>
+                            <v-col cols="12" class="mt-12"></v-col>
+                            <v-col cols="12" class="mt-12"></v-col>
                             <v-col cols="12" class="mt-12"></v-col>
                             <v-col cols="12" class="mt-12"></v-col>
                             <v-col cols="12" class="mt-12"></v-col>
@@ -1096,7 +536,7 @@
                                         <v-row>
                                             <v-col cols="12" class="ml-5">
                                                 <div>
-                                                    <h3 class="text-white mt-1 mb-n3" v-if="textstory == 13">
+                                                    <h3 class="text-white header2 ml-5 mb-n3" v-if="textstory == 13">
                                                         Kawaii Streamer
                                                     </h3>
                                                 </div>  
@@ -1105,7 +545,7 @@
                                         <v-row class="justify-center">
                                             <v-col cols="11"  class="mt-3">
                                                 <div v-if="textstory == 13">
-                                                    <p class="text-secondary idfont font-weight-bold">
+                                                    <p class="text-secondary idfont2 font-weight-bold">
                                                         ไหนๆ คุณเต้าหู้ปลา ขอบคุณสำหรับโดเนทจำนวน xxxนะ ขอให้..เอ๋? เรื่องแบบนั้นไม่ได้หรอกนะ <br/> <br/>
                                                     </p>
                                                 </div>  
@@ -1115,7 +555,7 @@
                                         <v-row class="justify-end">
                                             <v-col cols="12"></v-col>
                                             <v-btn
-                                                class="mt-n10 mr-5"
+                                                class="mt-n10 mr-12"
                                                 variant="text"
                                                 icon="mdi-chevron-right"
                                                 color="primary"
@@ -1129,9 +569,17 @@
                         </v-img>
                         <v-img
                         v-if="this.textstory == 9 || this.textstory == 17 || this.textstory == 18"
-                            height="470"
+                        max-height="1390"
                             src="@/assets/kwaii/KS02.gif"
                         >
+                        <v-col cols="12" class="mt-12"></v-col>
+                            <v-col cols="12" class="mt-12"></v-col>
+                            <v-col cols="12" class="mt-12"></v-col>
+                            <v-col cols="12" class="mt-12"></v-col>
+                            <v-col cols="12" class="mt-12"></v-col>
+                            <v-col cols="12" class="mt-12"></v-col>
+                            <v-col cols="12" class="mt-12"></v-col>
+                            <v-col cols="12" class="mt-12"></v-col>
                             <v-col cols="12" class="mt-12"></v-col>
                             <v-col cols="12" class="mt-12"></v-col>
                             <v-col cols="12" class="mt-12"></v-col>
@@ -1146,10 +594,10 @@
                                         <v-row>
                                             <v-col cols="12" class="ml-5">
                                                 <div>
-                                                    <h3 class="text-white mt-1 mb-n3" v-if="textstory != 18">
+                                                    <h3 class="text-white ml-5 header2 mb-n3" v-if="textstory != 18">
                                                         Kawaii Streamer
                                                     </h3>
-                                                    <h3 class="text-white mt-1 mb-n3" v-if="textstory == 18">
+                                                    <h3 class="text-white ml-5 header2 mb-n3" v-if="textstory == 18">
                                                         (คำบรรยาย)
                                                     </h3>
                                                 </div>  
@@ -1157,15 +605,15 @@
                                         </v-row>
                                         <v-row class="justify-center">
                                             <v-col cols="11" class="mt-3">
-                                                <div v-if="textstory == 9" class="text-secondary idfont font-weight-bold">
+                                                <div v-if="textstory == 9" class="text-secondary idfont2 font-weight-bold">
                                                     <p>
-                                                        เรียกว่า คาสุจังเถอะ！ <br/> 
+                                                        เรียกว่า คาสุจังเถอะ！ <br/> <br/>
                                                     </p>
                                                 </div> 
                                                 
                                                 <div v-if="textstory == 17" class="text-secondary longtextfont font-weight-bold">
                                                     <p>
-                                                        เอาเถอะๆ ก่อนจะต้องกลายเป็นไลฟ์สตรีมเซ็กซี่ ถึงจะเร็วไปหน่อย แต่ว่าเพราะผู้ติดตามและคนดูที่เพิ่มมาเยอะ เลยมีของขวัญให้ละ เป็นอิโมจิออฟฟิเชียล สเปเชียลไว้ใช้สำหรับช่องนี้โดยเฉพาะสำหรับคนสมัครเป็นสมาชิก อย่าลืมสมัครล่ะ！ <br/>
+                                                        เอาเถอะๆ ก่อนจะต้องกลายเป็นไลฟ์สตรีมเซ็กซี่ ถึงจะเร็วไปหน่อย แต่ว่าเพราะผู้ติดตามและคนดูที่เพิ่มมาเยอะ เลยมีของขวัญให้ละ เป็นอิโมจิออฟฟิเชียล สเปเชียลไว้ใช้สำหรับช่องนี้โดยเฉพาะสำหรับคนสมัครเป็นสมาชิก อย่าลืมสมัครล่ะ！
                                                     </p>
                                                 </div>
 
@@ -1182,7 +630,7 @@
                                         <v-col cols="12"></v-col>
                                             <v-btn
                                                 v-if="textstory != 17 && textstory != 18"
-                                                    class="mt-n3 mr-5"
+                                                    class="mt-n3 mr-12"
                                                     variant="text"
                                                     icon="mdi-chevron-right"
                                                     color="primary"
@@ -1191,7 +639,7 @@
                                                 </v-btn>
                                                 <v-btn
                                                     v-if="textstory == 17 || textstory == 18"
-                                                    class="mt-n12 mr-5"
+                                                    class="mt-n12 mr-12"
                                                     variant="text"
                                                     icon="mdi-chevron-right"
                                                     color="primary"
@@ -1211,21 +659,21 @@
         
               <Transition name="fade">
               <v-row class="justify-center" v-if="this.chatstory >= 1 && componum == 0">
-                <v-col cols="6" class="">
+                <v-col cols="6" xl5 >
                     <v-img
-                            height="200"
+                           cover
                             src="@/assets/other/Commentbox_2.png"
                     >
                     <v-row>
-                        <v-col cols="12" class="ml-5 mt-1">
+                        <v-col cols="12" class="ml-12 mt-1">
                             <div>
-                                <h2 class="text-white">
+                                <h2 class="text-white header">
                                     Chat Comment
                                 </h2>
                             </div>  
                         </v-col>
                     </v-row>
-                    <v-row class="justify-center mt-n3">
+                    <v-row class="justify-center mt-8">
                         <v-col cols="11">
                             <div v-if="this.chatstory ==1 || this.chatstory >= 2 && this.chatnum == 0">
                                 <p>
@@ -1249,12 +697,12 @@
                             </div> 
 
                             <div v-if="this.chatstory >= 2 && this.chatnum > 0 && this.chatnum < 5">
-                                <p>
+                                <p class="idfont">
                                     มะง่วง  :   มาแล้วๆๆๆๆ
                                 </p>
                             </div> 
                             <div v-if="this.chatstory == 2 && this.chatnum > 0 && this.chatnum < 2">
-                                <p>
+                                <p >
                                     <br/>
                                 </p>
                             </div> 
@@ -1269,12 +717,12 @@
                                 </p>
                             </div>    
                             <div v-if="this.chatstory >= 2 && this.chatnum > 1 && this.chatnum < 6">
-                                <p>
+                                <p class="idfont">
                                     น้ำปลาหวาน  :   konkonkonnnnn
                                 </p>
                             </div> 
                             <div v-if="this.chatstory == 2 && this.chatnum > 1 && this.chatnum < 3">
-                                <p>
+                                <p >
                                     <br/>
                                 </p>
                             </div>
@@ -1284,7 +732,7 @@
                                 </p>
                             </div>    
                             <div v-if="this.chatstory >= 2 && this.chatnum > 2 && this.chatnum < 7">
-                                <p>
+                                <p class="idfont">
                                     หมึกผัดไข่เค็ม  :   มายังอะ
 
                                 </p>
@@ -1297,107 +745,107 @@
                             
                             
                             <div v-if="this.chatstory >= 3 && this.chatnum > 3 && this.chatnum < 8">
-                                <p>
+                                <p class="idfont">
                                     omeow_11  :   คนดูเยอะจัง
                                 </p>
                             </div> 
                             <div v-if="this.chatstory >= 3 && this.chatnum > 4 && this.chatnum < 9">
-                                <p>
+                                <p class="idfont">
                                     babyblue  :   สวัสดีครับ
                                 </p>
                             </div>  
                             <div v-if="this.chatstory >= 4 && this.chatnum > 5 && this.chatnum < 10">
-                                <p>
+                                <p class="idfont">
                                     ringo__  :   ยินดีที่ได้รู้จักน้า♥♥
                                 </p>
                             </div>                        
                             <div v-if="this.chatstory >= 5 && this.chatnum > 6 && this.chatnum < 11">
-                                <p>
+                                <p class="idfont">
                                     pewpew777  :   ไม่ลอง...หน่อยหรอ?
                                 </p>
                             </div>
                             <div v-if="this.chatstory >= 5 && this.chatnum > 7 && this.chatnum < 12">
-                                <p>
+                                <p class="idfont">
                                     tsisonfire  :   คิดถึงจังเลย♥♥♥
                                 </p>
                             </div> 
                             <div v-if="this.chatstory >= 5 && this.chatnum > 8 && this.chatnum < 13">
-                                <p>
+                                <p class="idfont">
                                     unchidaaaaaa  :   ไม่ชอบพวกมาดูใหม่เลย 😠😠
                                 </p>
                             </div> 
                             <div v-if="this.chatstory >= 6 && this.chatnum > 9 && this.chatnum < 14">
-                                <p>
+                                <p class="idfont">
                                     unchidaaaaaa  :   วันนี้ก็น่ารักอีกแล้ว
                                 </p>
                             </div> 
                             <div v-if="this.chatstory >= 6 && this.chatnum > 10 && this.chatnum < 15">
-                                <p>
+                                <p class="idfont">
                                     ringo__  :   ลองทำตามก็ไม่แย่นะ?
                                 </p>
                             </div>
                             <div v-if="this.chatstory >= 7 && this.chatnum > 11 && this.chatnum < 16">
-                                <p>
+                                <p class="idfont">
                                     JellyBear  :   วันนี้สตรีมเมอร์จังน่ารักจังเลยยย
                                 </p>
                             </div>
                             <div v-if="this.chatstory >= 7 && this.chatnum > 12 && this.chatnum < 17">
-                                <p>
+                                <p class="idfont">
                                     kusogaki1234  :   คาสุจังลองทำท่าน่ารักให้ดูหน่อยยย
                                 </p>
                             </div>
                             <div v-if="this.chatstory >= 8 && this.chatnum > 13 && this.chatnum < 18">
-                                <p>
+                                <p class="idfont">
                                     puropuchi  :   ดูครั้งแรกครับ
                                 </p>
                             </div>
                             <div v-if="this.chatstory >= 8 && this.chatnum > 14 && this.chatnum < 19">
-                                <p>
+                                <p class="idfont">
                                     anony  :   หวังว่าจะอยู่ได้นานนะ
                                 </p>
                             </div>
                             <div v-if="this.chatstory >= 8 && this.chatnum > 15 && this.chatnum < 20">
-                                <p>
+                                <p class="idfont">
                                     ต้นหอมย่าง  :   ปกติมาดูไม่ทันแต่วันนี้มาทัน ดีใจจังงง
                                 </p>
                             </div>
                             <div v-if="this.chatstory >= 9 && this.chatnum > 16 && this.chatnum < 21">
-                                <p>
+                                <p class="idfont">
                                     ต้นหอมย่าง  :   วันนี้จะทำอะไรหรอ ?
                                 </p>
                             </div>
                             <div v-if="this.chatstory >= 9 && this.chatnum > 17 && this.chatnum < 22">
-                                <p>
+                                <p class="idfont">
                                     เต้าหู้ปลา  :   คาสุุจังทำไมไม่ลองทำตามที่บอกอะ
                                 </p>
                             </div>
                             <div v-if="this.chatstory >= 9 && this.chatnum > 18 && this.chatnum < 23">
-                                <p>
+                                <p class="idfont">
                                     tongkatsulover  :   น่ารักตั้งแต่เริ่มเลย
                                 </p>
                             </div>
                             <div v-if="this.chatstory >= 10 && this.chatnum > 19 && this.chatnum < 24">
-                                <p>
+                                <p class="idfont">
                                     puropuchi  :   วันนี้สตรีมเมอร์จังน่ารักจังเลยยย
                                 </p>
                             </div>
                             <div v-if="this.chatstory >= 10 && this.chatnum > 20 && this.chatnum < 25">
-                                <p>
+                                <p class="idfont">
                                     มะง่วง  :   โดโมะคาสุจัง😍😍
                                 </p>
                             </div>
                             <div v-if="this.chatstory >= 10 && this.chatnum > 21 && this.chatnum < 26">
-                                <p>
+                                <p class="idfont">
                                     มะง่วง  :   วันนี้คนดูเยอะม้าก
                                 </p>
                             </div> 
                             <div v-if="this.chatstory >= 10 && this.chatnum > 22 && this.chatnum < 27">
-                                <p>
+                                <p class="idfont">
                                     tongkatsulover  :   น่ารักกก
                                 </p>
                             </div> 
                             <div v-if="this.chatstory >= 10 && this.chatnum > 25 && this.chatnum < 30">
-                                <p>
+                                <p class="idfont">
                                     {{ mc_name }}  : 
                                     <v-row class="ml-5 mt-n1 mb-n5">
                                     <v-col 
@@ -1503,11 +951,15 @@
                         </v-col>
                     </v-row>
                     <v-row class="justify-end" align-self="end">
+                        <v-col cols="12"></v-col>
+                        <v-col cols="12"></v-col>
+                        <v-col cols="12"></v-col>
+                       
                       
                    
                        
                         <v-btn
-                            class="ml-12 mt-n3"
+                            class="mt-n3"
                             variant="text"
                             icon="mdi-near-me"
                             v-if="textstory < 18 || emotetext == false"
@@ -1516,7 +968,7 @@
                         >
                         </v-btn>
                         <v-btn
-                            class="ml-12 mt-n3"
+                            class=" mt-n3"
                             variant="text"
                             icon="mdi-near-me"
                             color="secondary"
@@ -1554,7 +1006,7 @@
                                 </v-btn>
                             </template>
 
-                        <v-card min-width="300" class="ml-3 mr-3 mt-3">
+                        <v-card min-width="600" class="ml-3 mr-3 mt-3">
                     
                                 <v-row class="mt-1 ml-1 mr-1">
                                     <v-col    
@@ -1815,32 +1267,31 @@
                     </v-img>
                         
                     </v-col>
-                <v-col cols="3" class="">
+                <v-col cols="2" class="">
                     <v-img
-                    height="200"
+                   
                     src="@/assets/other/Spritebox_Small.png"
                     >
                         <div v-if="textstory == 0 || textstory == 4 || textstory == 6 || textstory == 7 || textstory == 8 || textstory == 9 || textstory == 12 || textstory == 13 || textstory == 14 || textstory == 15  || textstory == 16 || textstory == 19 ">
                             <v-img
-                                height="200"
+                                
                                 src="@/assets/mc/MC00.png"
                             />
                         </div>
                         <div v-if="textstory == 5 || textstory == 17 || textstory == 18 || textstory == 20 || textstory == 21">
                             <v-img
-                                height="200"
+                                
                                 src="@/assets/mc/MC01.png"
                             />
                         </div>
                         <div v-if="textstory == 1 || textstory == 2 || textstory == 3 || textstory == 10">
                             <v-img
-                                height="200"
+                                
                                 src="@/assets/mc/MC05.png"
                             />
                         </div>
                         <div v-if="textstory == 11">
-                            <v-img
-                                height="200"
+                            <v-img 
                                 src="@/assets/mc/MC06.png"
                             />
                         </div>
@@ -2067,10 +1518,19 @@
     </script>
     <style>
     .idfont {
-    font-size: 17px;
+    font-size: 60px;
+} 
+.header {
+    font-size: 80px;
+} 
+.idfont2 {
+    font-size: 50px;
+} 
+.header2 {
+    font-size: 60px;
 } 
 .longtextfont {
-    font-size: 16px;
+    font-size: 45px;
 } 
 .startbutton{
   background: linear-gradient(0deg, rgba(149,73,223,1) 0%, rgba(174,105,222,1) 50%);
