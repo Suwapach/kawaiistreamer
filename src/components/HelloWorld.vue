@@ -15,7 +15,7 @@
             src="@/assets/LogoFinal.png"
           />
           <v-row class="justify-center mt-12">
-            <v-col class="mt-12" cols="12"></v-col>
+            <v-col class="" cols="12"></v-col>
             <v-col cols="10">
               <v-text-field
               placeholder="Your name here..."
@@ -35,8 +35,7 @@
               v-model="startbutton"
               class="text-h4 text-white startbutton"
               rounded="pill"
-              height="200"
-              width="800"
+              size="x-large"
               variant="flat"   
               @click="mcname()"
               >
