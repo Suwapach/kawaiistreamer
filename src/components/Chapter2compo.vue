@@ -37,7 +37,7 @@
                             >
                             <v-row class="justify-center">
                                 <v-col cols="8" v-if="this.post == 0">
-                                    <v-card width="620" max-height="447" class="mt-8 mb-n1"
+                                    <v-card width="680" max-height="447" class="mt-8 mb-n1"
                                     color="grey-lighten-5">
                                         <v-card-text>
                                             <v-list-item
@@ -94,7 +94,7 @@
                                 </v-col>
             
                             <v-col cols="8" v-if="this.post == 1">
-                                <v-card width="620" min-height="447" class="mt-8 mb-1" color="grey-lighten-5">
+                                <v-card width="680" min-height="447" class="mt-8 mb-1" color="grey-lighten-5">
                                     <v-card-text>
                                         <v-col cols="12" class="mt-12"></v-col>
                                         <v-col cols="12" class=""></v-col>

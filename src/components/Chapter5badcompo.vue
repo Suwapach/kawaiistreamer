@@ -21,7 +21,7 @@
                     <v-row class="justify-center">
                        
                             <v-col cols="8" v-if="this.post == 0">
-                                <v-card  width="620" max-height="447" class="mt-8 mb-n1" color="grey-lighten-5">
+                                <v-card  width="680" max-height="447" class="mt-8 mb-n1" color="grey-lighten-5">
                                     <v-card-text>
                                         <v-list-item
                                             v-for="folder in folders"
@@ -29,7 +29,7 @@
                                             :title="folder.title"
                                             :subtitle="folder.subtitle"  
                                             :type = "divider"
-                                            class="mt-n1"
+                                            class="mt-n2"
                                         >
                                             <template v-slot:prepend>
                                                 <v-avatar size="30" class="mt-n3" :color = "folder.color">
@@ -75,10 +75,10 @@
                             </v-col>
 
                             <v-col cols="8" v-if="this.post == 1">
-                                <v-card  width="620" min-height="447" class="mt-8 mb-1" color="grey-lighten-5">
+                                <v-card  width="680" min-height="447" class="mt-8 mb-1" color="grey-lighten-5">
                                     <v-card-text>
                                         <v-col cols="12" class="mt-12"></v-col>
-                                        <v-col cols="12" class="mt-10"></v-col>
+                                        <v-col cols="12" class=""></v-col>
                                         <v-row class="justify-center">
                                     <v-col cols="10">
                                         <v-btn variant="outlined" @click = "postfuntion(1)" color="secondary" block rounded="xl" size="x-large">
@@ -87,12 +87,12 @@
                                     </v-col>
                                     <v-col cols="10">
                                         <v-btn variant="outlined" @click = "postfuntion(2)" color="secondary" block rounded="xl" size="x-large">
-                                            อุตส่าห์ตั้งใจเขียนให้ขนาดนั้น ถ้ารีแอคไม่ดีจะโกรธจริง ๆ ด้วย
+                                            อุตส่าห์ตั้งใจเขียนให้ขนาดนั้น <br/> ถ้ารีแอคไม่ดีจะโกรธจริง ๆ ด้วย
                                         </v-btn>
                                     </v-col>
                                     <v-col cols="10">
                                         <v-btn variant="outlined" @click = "postfuntion(3)" color="secondary" block rounded="xl" size="x-large">
-                                            ยังไงเธอก็ต้องชอบจดหมายเราอยู่แล้ว แต่ถ้าไม่ชอบก็น่าจะรู้นะว่าจะโดนอะไร
+                                            ยังไงเธอก็ต้องชอบจดหมายเราอยู่แล้ว<br/> แต่ถ้าไม่ชอบก็น่าจะรู้นะว่าจะโดนอะไร
                                         </v-btn>
                                     </v-col>
                                 </v-row>
@@ -101,25 +101,59 @@
                                 </v-card>
                                 
                             </v-col>
-                        <v-col cols="1">
+                        <v-col cols="1" class="ml-12 mr-n12">
                             <v-col cols="12" class="nt-12"></v-col>
                             
-                            <v-row class="justify-end">
-                                <v-btn
-                                    color="primary"
+                            <v-row class="justify-end mr-n8">
+                                <v-col cols="12" class="mt-12"></v-col>
+                            <v-col cols="12" class="mt-12"></v-col>
+                            <v-col cols="12" class="mt-12"></v-col>
+                            <v-col cols="12" class="mt-12"></v-col>
+                            <v-col cols="12" class="mt-6"></v-col>        
+                            <v-btn
+                                    color="white"
                                     icon="mdi-bell"
                                     variant="text"
                                     size="x-large"
-                                ></v-btn>
+                                    v-if="textstory >= 3"
+                                    @click = "story()"
+                                >
+                                    <v-badge  size="x-large" color="red">
+                                        <v-icon size="x-large">mdi-bell</v-icon>
+                                    </v-badge>
+                                </v-btn>
+                                <v-btn
+                                    color="white"
+                                    icon="mdi-bell"
+                                    variant="text"
+                                    size="x-large"
+                                    v-if="textstory < 3"
+                                >
+                                    
+                                        <v-icon size="x-large">mdi-bell</v-icon>
+            
+                                </v-btn>
                             </v-row>
-                            <v-row class="justify-end">
-                                    <v-btn
-                                        color="primary"
+                            <v-row class="justify-end mr-n8">
+                                <v-btn
+                                        color="white"
                                         icon="mdi-border-color"
                                         variant="text"
                                         size="x-large"
+                                        v-if="this.postbutton == true"
                                         @click = "this.post = 1"
-                                    ></v-btn>
+                                    >
+                                    <v-icon size="x-large">mdi-border-color</v-icon>
+                                </v-btn>
+                                    <v-btn
+                                        color="white"
+                                        icon="mdi-border-color"
+                                        variant="text"
+                                        size="x-large"
+                                        v-if="this.postbutton == false"
+                                    >
+                                    <v-icon size="x-large">mdi-border-color</v-icon>
+                                </v-btn>
                             </v-row>
                         </v-col>
                         
@@ -593,6 +627,7 @@
                             icon="mdi-chevron-right"
                             color="primary"
                             @click = "story()"
+                            v-if="this.postbutton == false"
                         >
                         </v-btn>
                     </v-row>
@@ -701,6 +736,7 @@
             return {
                 textstory : 0,
                 post : 0,
+                postbutton: false,
                 folders: [
                 {
                     subtitle: 'วันนี้สตรีมเปิดของขวัญกับอ่านจดหมายปะ ถ้าถึงของเราต้องเขินมากแน่ ๆ เลย ฮือ',
@@ -739,33 +775,36 @@
                 },
     
       ],
-                folder1: [{
+                folder1: {
                     subtitle: 'หวังว่าเธอจะได้รับกำลังใจจากจดหมายของทุกคนนะ！',
                     title: 'MC',
-                    color: 'pink-accent-1',
+                    color: 'cyan-lighten-1',
                     like: 0,
                     report : 'primary'
-                }],
-                folder2: [{
-                    subtitle: 'เธอดูโปรจัง แถมยังสวยด้วย ',
+                },
+                folder2: {
+                    subtitle: 'อุตส่าห์ตั้งใจเขียนให้ขนาดนั้น ถ้ารีแอคไม่ดีจะโกรธจริง ๆ ด้วย',
                     title: 'MC',
-                    color: 'pink-accent-1',
+                    color: 'cyan-lighten-1',
                     like: 0,
                     report : 'primary'
-                }],
-                folder3: [{
+                },
+                folder3: {
                     subtitle: 'ยังไงเธอก็ต้องชอบจดหมายเราอยู่แล้ว แต่ถ้าไม่ชอบก็น่าจะรู้นะว่าจะโดนอะไร',
                     title: 'MC',
-                    color: 'pink-accent-1',
+                    color: 'cyan-lighten-1',
                     like: 0,
                     report : 'primary'
-                }],
+                },
             }
         },
         methods: {
             story(){
                 console.log(this.textstory);
                 this.textstory = this.textstory + 1
+                if(this.textstory == 2 ){
+                    this.postbutton = true
+                }
             },
             likefuntion(like){
                 console.log(like);
@@ -797,46 +836,96 @@
             postfuntion(num){
                 this.textstory = this.textstory + 1
                 if(num == 1){
-                    this.folders.push(this.folder1)
-                    this.post = 0
-                    let i = []
-                for (i = this.folders.length; i >= this.folders.length; i--) {
-                    if (this.folders[i].title == like.title) {
-                    this.folders = []
-                    console.log(this.folders[i].color)
-                    this.folders.push = this.folders[i]
+                
+                let i = []
+                let y = []
+                let c= []
+                let d= []
+                let b = this.folders.length - 1
+                this.folders.push(this.folders[b])
+                for (i = 0; i < this.folders.length; i++) {
+                y = i+1
+                if (i == 0) {
+                    let a = this.folders[i]
+                    c = this.folders[y]
+                    this.folders[i] = this.folder1
+                    this.folders[y] = a
+                console.log(this.folders[y])
+                
+                
+                }
+                else if(i >= 2 && y < this.folders.length){
+                    console.log(this.folders[y])
+                    d = this.folders[i]
+                    this.folders[i] = c
+                    c  = d
+                    console.log(this.folders[i])
                     
-                    }
-                    this.textstory = 5
+                }  
+                this.textstory = 3
+                this.post = 0
+            }
+            }
+            else if(num == 2){
+                let i = []
+                let y = []
+                let c= []
+                let d= []
+                let b = this.folders.length - 1
+                this.folders.push(this.folders[b])
+                for (i = 0; i < this.folders.length; i++) {
+                y = i+1
+                if (i == 0) {
+                    let a = this.folders[i]
+                    c = this.folders[y]
+                    this.folders[i] = this.folder2
+                    this.folders[y] = a
+                console.log(this.folders[y])
+                
+                
                 }
-                }
-                else if(num == 2){
-                    this.folders.push(this.folder2)
-                    this.post = 0
-                    for (i = this.folders.length; i >= this.folders.length; i--) {
-                    if (this.folders[i].title == like.title) {
-                    this.folders = []
-                    console.log(this.folders[i].color)
-                    this.folders.push = this.folders[i]
+                else if(i >= 2 && y < this.folders.length){
+                    console.log(this.folders[y])
+                    d = this.folders[i]
+                    this.folders[i] = c
+                    c  = d
+                    console.log(this.folders[i])
                     
+                }  
+                this.textstory = 3
+                this.post = 0
+            }
+            }
+            else if(num == 3){
+                let i = []
+                let y = []
+                let c= []
+                let d= []
+                let b = this.folders.length - 1
+                this.folders.push(this.folders[b])
+                for (i = 0; i < this.folders.length; i++) {
+                y = i+1
+                if (i == 0) {
+                    let a = this.folders[i]
+                    c = this.folders[y]
+                    this.folders[i] = this.folder3
+                    this.folders[y] = a
+                console.log(this.folders[y])
+                
+                
+                }
+                else if(i >= 2 && y < this.folders.length){
+                    console.log(this.folders[y])
+                    d = this.folders[i]
+                    this.folders[i] = c
+                    c  = d
+                    console.log(this.folders[i])
                     
-                    }
-                    this.textstory =5
-                }
-                }
-                else if(num == 3){
-                    this.folders.push(this.folder3)
-                    this.post = 0
-                    for (i = this.folders.length; i >= this.folders.length; i--) {
-                    if (this.folders[i].title == like.title) {
-                    this.folders = []
-                    console.log(this.folders[i].color)
-                    this.folders.push = this.folders[i]
-                    
-                    }
-                    this.textstory =5
-                }
-                }
+                }  
+                this.textstory = 3
+                this.post = 0
+            }
+            }
             },
         }
     }

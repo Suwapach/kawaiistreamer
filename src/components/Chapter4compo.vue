@@ -84,7 +84,7 @@
                             </v-col>
 
                             <v-col cols="8" v-if="this.post == 1">
-                                <v-card width="620" min-height="447" class="mt-8 mb-1" color="grey-lighten-5">
+                                <v-card width="680" min-height="447" class="mt-8 mb-1" color="grey-lighten-5">
                                     <v-card-text>
                                         <v-col cols="12" class="mt-12"></v-col>
                                         <v-col cols="12" class=""></v-col>
