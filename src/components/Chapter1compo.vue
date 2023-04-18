@@ -12,7 +12,7 @@
             <v-col cols="12"></v-col>
             <v-col cols="12"></v-col>
           <v-row class="justify-center" v-if="componum == 0">
-            <v-col cols="9" xl="7" lg="10">
+            <v-col cols="9" xl="8" lg="10">
                 <div v-if="textstory >= 0 && textstory <= 5">
                     <v-img
                         class="ml-5 mr-5"
@@ -52,7 +52,7 @@
           </v-row>
           <Transition name="fade">
           <v-row class="justify-center mt-8" v-if="this.chatstory == 0 && componum == 0">
-                <v-col cols="8" xl="5" lg="6" class="">
+                <v-col cols="8" xl="6" lg="6" class="">
                     <v-img
                     class=""
                             cover
@@ -79,28 +79,28 @@
                             </div>    
                             <div v-if="textstory == 1">
                                 <p class="text-secondary idfont font-weight-bold">
-                                    แต่เปลี่ยนมาวุ่นวายกับคนในโลกออนไลน์ที่ใช้ชีวิตกันอยู่แค่ในหน้าจอขนาด 1,980 x 1,080 pixel แทนโลกสามมิติมากกว่า<br/> <br/>
+                                    แต่เปลี่ยนมาวุ่นวายกับคนในโลกออนไลน์ที่ใช้ชีวิตกันอยู่แค่ในหน้าจอขนาด 1,980 x 1,080 pixel แทนโลกสามมิติมากกว่า<br/> <br/> <br/>
                                 </p>
                             </div>    
                             <div v-if="textstory == 2">
                                 <p class="text-secondary idfont font-weight-bold">
-                                    ...?  <br/> <br/><br/>
+                                    ...?  <br/> <br/><br/><br/>
 
                                 </p>
                             </div>
                             <div v-if="textstory == 3">
                                 <p class="text-secondary idfont font-weight-bold">
-                                    ดูเหมือนแฮชแท็กบางอย่างกำลังเป็นประเด็นนะ KawaiiStreamer? <br/> <br/>
+                                    ดูเหมือนแฮชแท็กบางอย่างกำลังเป็นประเด็นนะ KawaiiStreamer? <br/> <br/><br/><br/>
                                 </p>
                             </div> 
                             <div v-if="textstory == 4">
                                 <p class="text-secondary idfont font-weight-bold">
-                                    [เป็นหน้าโซเชียลมีเดียที่กำลังพูดถึงสตรีมเมอร์หน้าใหม่] <br/> <br/><br/> 
+                                    [เป็นหน้าโซเชียลมีเดียที่กำลังพูดถึงสตรีมเมอร์หน้าใหม่] <br/> <br/><br/> <br/>
                                 </p>
                             </div>  
                             <div v-if="textstory == 5">
                                 <p class="text-secondary idfont font-weight-bold">
-                                    ลองแวะไปดูสักหน่อยละกัน <br/> <br/><br/>
+                                    ลองแวะไปดูสักหน่อยละกัน <br/> <br/><br/><br/>
                                 </p>
                             </div>                        
                             <div v-if="textstory == 19">
@@ -110,20 +110,19 @@
                             </div>
                             <div v-if="textstory == 20">
                                 <p class="text-secondary idfont font-weight-bold"> 
-                                    ทั้งตลก เศร้า ทำให้เราดันสนุกไปด้วยได้อย่างไม่น่าเชื่อเลย แบบนี้น่ะ... <br/> <br/>
+                                    ทั้งตลก เศร้า ทำให้เราดันสนุกไปด้วยได้อย่างไม่น่าเชื่อเลย แบบนี้น่ะ... <br/> <br/><br/>
                                 </p>
                             </div> 
                             <div v-if="textstory == 21">
                                 <p class="text-secondary idfont font-weight-bold">
-                                    โดนใจอย่างจัง!!! <br/> <br/>
+                                    โดนใจอย่างจัง!!! <br/> <br/><br/><br/>
                                 </p>
                             </div> 
                         </v-col>
                     </v-row>
                     <v-row class="justify-end ">
                         <v-col cols="12"></v-col>
-                        <v-col cols="12"></v-col>
-                        <v-col cols="12"></v-col>
+                         
           
               
                         <v-btn
@@ -156,30 +155,30 @@
                 <v-col cols="2" class="">
                     <v-img
                     
-                    max-height="630"
+                   
                     src="@/assets/other/Spritebox_Small.png"
                     >
                         <div v-if="textstory == 0 || textstory == 4 || textstory == 6 || textstory == 7 || textstory == 8 || textstory == 9 || textstory == 12 || textstory == 13 || textstory == 14 || textstory == 15  || textstory == 16 || textstory == 19 ">
                             <v-img
-                            max-height="630"
+                            
                                 src="@/assets/mc/MC00.png"
                             />
                         </div>
                         <div v-if="textstory == 5 || textstory == 17 || textstory == 18 || textstory == 20 || textstory == 21">
                             <v-img
-                            max-height="630"
+                           
                                 src="@/assets/mc/MC01.png"
                             />
                         </div>
                         <div v-if="textstory == 1 || textstory == 2 || textstory == 3 || textstory == 10">
                             <v-img
-                            max-height="630"
+                           
                                 src="@/assets/mc/MC05.png"
                             />
                         </div>
                         <div v-if="textstory == 11">
                             <v-img
-                            max-height="630"
+                           
                                 src="@/assets/mc/MC06.png"
                             />
                         </div>
@@ -488,7 +487,7 @@
                 
                                                 <div v-if="textstory == 12">
                                                     <p class="text-secondary idfont2 font-weight-bold">
-                                                        ว้าย ตกใจหมดเลย ยังไงก็ยังไม่ชินกับเสียงแจ้งเตือนโดเนทอยู่ดีอ่า <br/><br/>
+                                                        ว้าย ตกใจหมดเลย ยังไงก็ยังไม่ชินกับเสียงแจ้งเตือนโดเนทอยู่ดีอ่า <br/><br/><br/>
                                                     </p>
                                                 </div> 
                                             
@@ -607,7 +606,7 @@
                                             <v-col cols="11" class="mt-3">
                                                 <div v-if="textstory == 9" class="text-secondary idfont2 font-weight-bold">
                                                     <p>
-                                                        เรียกว่า คาสุจังเถอะ！ <br/> <br/>
+                                                        เรียกว่า คาสุจังเถอะ！ <br/> <br/><br/>
                                                     </p>
                                                 </div> 
                                                 
@@ -619,7 +618,7 @@
 
                                                 <div v-if="textstory == 18" class=" text-secondary longtextfont font-weight-bold">
                                                     <p>
-                                                        [ลองกดอีโมตหน้ายิ้ม เพื่อส่งอีโมตเป็นกำลังใจให้คาสุจังดูสิ] <br/> <br/> 
+                                                        [ลองกดอีโมตหน้ายิ้ม เพื่อส่งอีโมตเป็นกำลังใจให้คาสุจังดูสิ] <br/> <br/> <br/>
                                                     </p>
                                                 </div>
                                             
