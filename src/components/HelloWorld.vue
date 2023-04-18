@@ -14,8 +14,7 @@
             
             src="@/assets/LogoFinal.png"
           />
-          <v-row class="justify-center mt-12">
-            <v-col class="" cols="12"></v-col>
+          <v-row class="justify-center mt-3">
             <v-col cols="10">
               <v-text-field
               placeholder="Your name here..."
