@@ -6,11 +6,9 @@
             v-if="componum == 0 && typepage == 0"
             src="@/assets/background/Background4.jpg"
         >
-      <v-container fluid class="mt-12">
+      <v-container fluid class="mt-3">
         <v-responsive >
-            <v-col cols="12"></v-col>
-            <v-col cols="12"></v-col>
-            <v-col cols="12"></v-col>
+            
           <v-row class="justify-center" v-if="componum == 0">
             <v-col cols="9" xl="7" lg="7">
                 <div v-if="textstory >= 0 && textstory <= 5">
