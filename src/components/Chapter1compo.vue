@@ -1516,21 +1516,21 @@
 
     </script>
     <style>
-    .idfont {
+    /* .idfont {
     font-size: 60px;
-} 
+}  */
 /* .header {
     font-size: 80px;
 }  */
-.idfont2 {
+/* .idfont2 {
     font-size: 50px;
 } 
 .header2 {
     font-size: 60px;
-} 
-.longtextfont {
+}  */
+/* .longtextfont {
     font-size: 45px;
-} 
+}  */
 .startbutton{
   background: linear-gradient(0deg, rgba(149,73,223,1) 0%, rgba(174,105,222,1) 50%);
 }
