@@ -9,7 +9,7 @@
   <v-container  fluid>
     <v-responsive class="mt-12">
       <v-row class="justify-center"  v-if="componum == 0">
-        <v-col cols="5" xl6 class="mt-10">
+        <v-col cols="5" xl6 class="mt-2">
           <v-img
             
             src="@/assets/LogoFinal.png"
