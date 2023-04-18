@@ -25,6 +25,7 @@
         <v-responsive >
           <v-row class="justify-center">
             <v-col cols="10">
+                <Transition name="fade">
                 <div v-if="textstory >= 1 && textstory <= 5">
  
             
@@ -173,6 +174,8 @@
                     
                 
                 </div>
+                </Transition>
+                
                 <div v-if="textstory == 0">
                     <v-img
                     class="ml-5 mr-5"
@@ -251,6 +254,7 @@
                     <v-row class="justify-end">
                         <v-col cols="12"></v-col>
                         <v-btn
+                            v-if="textstory != 4"
                             class="mt-n3 mr-5"
                             variant="text"
                             icon="mdi-chevron-right"
@@ -301,7 +305,9 @@
         </v-responsive>
       </v-container>
     </v-img>
+    <Transition name="fade">
     <compo :mc_name="mcname" v-if="componum == 1" />
+    </Transition>
     </div>
     </template>
     
@@ -394,6 +400,7 @@
                 if(this.textstory == 6){
                     this.mcname = this.mc_name
                     this.componum = 1
+                    this.player1.pause()
                 }
                 if(this.textstory == 3){
                     this.dialog = true
@@ -523,11 +530,22 @@
                 }
                 }
                 
+                
             },
-            created(){
-            this.player1.play()
+            loopsound()
+            {
+                    setTimeout(() => this.playsound(), 125000);
+                
+            },
+            playsound(){
+                    this.player1.play()
+                    this.loopsound()    
+            }
+    
+        },
+        created(){
+            this.playsound()
             // this.player2.pause()
-        }
         }
     }
 
@@ -540,4 +558,23 @@
 .longtextfont {
     font-size: 16px;
 } 
+.fade-enter-from{
+  opacity: 0;
+}
+.fade-enter-to{
+  opacity: 1;
+}
+
+.fade-enter-active{
+  transition: all 2s ease;
+}
+.fade-leave-from{
+    opacity: 1;
+}
+.fade-leave-to{
+    opacity: 0;
+}
+.fade-leave-active{
+  transition: all 2s ease;
+}
     </style>

@@ -1972,6 +1972,8 @@
                 if(this.textstory == 22){
                     this.mcname = this.mc_name
                     this.componum = 1
+                    this.player1.pause()
+                    this.player2.pause()
                     // this.$router.push('/chapter2')
                 }
             },
@@ -2074,10 +2076,10 @@
   background: linear-gradient(0deg, rgba(149,73,223,1) 0%, rgba(174,105,222,1) 50%);
 }
 .fade-enter-from{
-  opacity: 1;
+  opacity: 0;
 }
 .fade-enter-to{
-  opacity: 0;
+  opacity: 1;
 }
 
 .fade-enter-active{
