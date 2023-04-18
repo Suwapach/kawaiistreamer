@@ -12,7 +12,7 @@
             <v-col cols="12"></v-col>
             <v-col cols="12"></v-col>
           <v-row class="justify-center" v-if="componum == 0">
-            <v-col cols="9" xl="7" lg="10">
+            <v-col cols="9" xl="7" lg="7">
                 <div v-if="textstory >= 0 && textstory <= 5">
                     <v-img
                         class="ml-5 mr-5"
@@ -54,7 +54,7 @@
           <v-row class="justify-center mt-8" v-if="this.chatstory == 0 && componum == 0">
                 <v-col cols="8" xl="6" lg="6" class="">
                     <v-img
-                    class=""
+                    class="ml-5 mr-n5"
                             cover
                             src="@/assets/other/Textbox01.png"
                     >
@@ -206,7 +206,7 @@
             <v-col cols="12"></v-col>
             <v-col cols="12"></v-col>
           <v-row class="justify-center" v-if="componum == 0">
-            <v-col cols="8" xl="7">
+            <v-col cols="8" xl="7" lg="7">
                 <Transition name="fade">
                 <div v-if="textstory >= 6 && textstory <= 18">
                     <v-img
