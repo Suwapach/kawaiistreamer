@@ -1578,6 +1578,8 @@
                     this.soundtype = 1
                     this.playsound()
                     this.typepage = 1
+                    this.chatstory = this.chatstory + 1
+                    setTimeout(() => this.sendtext(), 500);
                
                 }
                 else if(this.textstory == 20 ){
@@ -1588,7 +1590,52 @@
                     this.playsound()
                     this.typepage = 2
                
+                }else if(this.textstory == 5){
+                    //2
+                    this.chatnum = 6
+                    this.chatstory = this.chatstory + 1
+                    setTimeout(() => this.sendtext(), 500);
                 }
+                else if(this.textstory == 6){
+                    //3
+                    this.chatnum = 9
+                    this.chatstory = this.chatstory + 1
+                    setTimeout(() => this.sendtext(), 500);
+                }
+                else if(this.textstory == 8){
+                    console.log("text")
+                    console.log(this.textstory)
+                    //4
+                    this.chatnum = 13
+                    this.chatstory = this.chatstory + 1
+                    console.log(this.chatstory)
+                    setTimeout(() => this.sendtext(), 500);
+                }
+                else if(this.textstory == 9){
+                    //5
+                    this.chatnum = 15
+                    this.chatstory = this.chatstory + 1
+                    setTimeout(() => this.sendtext(), 500);
+                }
+                else if(this.textstory == 10){
+                    //6
+                    this.chatnum = 18
+                    this.chatstory = this.chatstory + 1
+                    setTimeout(() => this.sendtext(), 500);
+                }
+                else if(this.textstory == 12){
+                    //7
+                    this.chatnum = 23
+                    this.chatstory = this.chatstory + 1
+                    setTimeout(() => this.sendtext(), 500);
+                }
+                else if(this.textstory == 18){
+                    //8
+                    this.chatnum = 26
+                    this.chatstory = this.chatstory + 1
+                    setTimeout(() => this.sendtext(), 500);
+                }
+                
             },
             chattext() {
                 console.log("1");
