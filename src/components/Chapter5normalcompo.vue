@@ -717,7 +717,7 @@
             </v-col>
           </v-row>
          
-              <v-row class="justify-center" v-if="this.chatstory >= 1">
+              <v-row class="justify-center">
                     
                     <v-col cols="6" class="">
                         <v-img
