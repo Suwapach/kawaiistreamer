@@ -1,7 +1,283 @@
 <template>
     <div>
+        <Transition name="fade">
         <v-img
-            v-if="componum == 0" 
+            v-if="componum == 0 && typepage == 0" 
+            src="@/assets/background/Background4.jpg"
+        >
+      <v-container>
+        <v-responsive >
+          <v-row class="justify-center">
+            <v-col cols="10">
+                <div v-if="textstory == 0 || textstory == 19 || textstory == 20">
+                    <v-img
+                        max-height="500"
+                        class="ml-5 mr-5"   
+                        cover
+                        src="@/assets/other/Untitled-1.png"
+                    >
+                   
+                    </v-img>
+                </div>
+            
+                <div v-if="textstory >= 1 && textstory <= 3">
+                    <v-img 
+                        class="ml-5 mr-5"
+                                src="@/assets/other/bgwebboard1.jpg"
+                                
+                                max-height="500"
+                                cover
+                            >
+                    <v-row class="justify-center">
+                        
+                            <v-col cols="8" v-if="this.post == 0">
+                                <v-card  width="680" max-height="447" class="mt-8 mb-1" color="grey-lighten-5">
+                                    <v-card-text>
+                                        <v-list-item
+                                            v-for="folder in folders"
+                                            :key="folder.title"
+                                            :title="folder.title"
+                                            :subtitle="folder.subtitle"  
+                                            :type = "divider"
+                                            class="mt-n1"
+                                        >
+                                            <template v-slot:prepend>
+                                                <v-avatar size="30" class="mt-n3" :color = "folder.color">
+                                                </v-avatar>
+                                            </template>
+
+                                            <template v-slot:append>
+                                                <v-btn
+                                                    @click = "reportfuntion(folder)"
+                                                    class="mt-n3"
+                                                    :color="folder.report"
+                                                    icon="mdi-information-outline"
+                                                    variant="text"
+                                                    size="small"
+                                                ></v-btn>
+                                            </template>
+                                            <v-btn
+                                                class=""
+                                                v-if="folder.like == 1"
+                                                :color="folder.report"
+                                                icon="mdi-heart"
+                                                variant="text"
+                                                size="small"
+                                            ></v-btn>
+                                            <v-btn
+                                                @click = "likefuntion(folder)"
+                                                v-if="folder.like == 0"
+                                                :color="folder.report"
+                                                icon="mdi-heart-outline"
+                                                variant="text"
+                                                size="small"
+                                            ></v-btn>
+                                            <v-btn
+                                                :color="folder.report"
+                                                icon="mdi-message-outline"
+                                                variant="text"
+                                                size="small"
+                                            ></v-btn>
+                                    
+                                        </v-list-item>
+                                    </v-card-text>
+                                </v-card>
+                            </v-col>
+
+                            <v-col cols="8" v-if="this.post == 1">
+                                <v-card  width="680" min-height="447" class="mt-8 mb-1" color="grey-lighten-5">
+                                    <v-card-text>
+                                        <v-col cols="12" class="mt-12"></v-col>
+                                        <v-col cols="12" class=""></v-col>
+                                        <v-row class="justify-center">
+                                    <v-col cols="10">
+                                        <v-btn variant="outlined" @click = "postfuntion(1)" color="secondary" block rounded="xl" size="x-large">
+                                            คอแลปวันนี้ต้องสนุกแน่ๆ รอไม่ไหวแล้ว !
+                                        </v-btn>
+                                    </v-col>
+                                    <v-col cols="10">
+                                        <v-btn variant="outlined" @click = "postfuntion(2)" color="secondary" block rounded="xl" size="x-large">
+                                            คอแลปหรอ กับใครก็ได้แหละแค่ขอได้เห็นเธอก็พอ
+                                        </v-btn>
+                                    </v-col>
+                                    <v-col cols="10">
+                                        <v-btn variant="outlined" @click = "postfuntion(3)" color="secondary" block rounded="xl" size="x-large">
+                                            วันนี้มีคอแลปหรอ จะเป็นใครนะ <br/> ไม่อยากให้เป็นผู้ชายเลย
+                                        </v-btn>
+                                    </v-col>
+                                </v-row>
+                                        
+                                    </v-card-text>
+                                </v-card>
+                                
+                            </v-col>
+                        <v-col cols="1" class="ml-12 mr-n12">
+                            <v-col cols="12" class="ml-12 mr-n12"></v-col>
+                            
+                            <v-row class="justify-end mr-n8">
+                                <v-col cols="12" class="mt-12"></v-col>
+                            <v-col cols="12" class="mt-12"></v-col>
+                            <v-col cols="12" class="mt-12"></v-col>
+                            <v-col cols="12" class="mt-12"></v-col>
+                            <v-col cols="12" class="mt-6"></v-col>
+                                <v-btn
+                                    color="white"
+                                    icon="mdi-bell"
+                                    variant="text"
+                                    size="x-large"
+                                    v-if="textstory >= 3"
+                                    @click = "story()"
+                                >
+                                    <v-badge  size="x-large" color="red">
+                                        <v-icon size="x-large">mdi-bell</v-icon>
+                                    </v-badge>
+                                </v-btn>
+                                <v-btn
+                                    color="white"
+                                    icon="mdi-bell"
+                                    variant="text"
+                                    size="x-large"
+                                    v-if="textstory < 3"
+                                >
+                                    
+                                        <v-icon size="x-large">mdi-bell</v-icon>
+            
+                                </v-btn>
+                            </v-row>
+                            <v-row class="justify-end mr-n8">
+                                <v-btn
+                                        color="white"
+                                        icon="mdi-border-color"
+                                        variant="text"
+                                        size="x-large"
+                                        v-if="this.postbutton == true"
+                                        @click = "this.post = 1"
+                                    >
+                                    <v-icon size="x-large">mdi-border-color</v-icon>
+                                </v-btn>
+                                    <v-btn
+                                        color="white"
+                                        icon="mdi-border-color"
+                                        variant="text"
+                                        size="x-large"
+                                        v-if="this.postbutton == false"
+                                    >
+                                    <v-icon size="x-large">mdi-border-color</v-icon>
+                                </v-btn>
+                            </v-row>
+                        </v-col>
+                        
+                    </v-row>
+                    </v-img>
+                </div>
+    
+            </v-col>
+          </v-row>
+          <v-row class="justify-center"  v-if="this.chatstory == 0">
+                <v-col cols="6" class="">
+                    <v-img
+                    cover
+                            src="@/assets/other/Textbox01.png"
+                    >
+                    <v-row>
+                        <v-col cols="12" class="ml-5 mt-1">
+                            <div>
+                                <h2 class="text-white" v-if="textstory == 0 || textstory == 19 || textstory == 20 ">
+                                    {{ mc_name }}
+                                </h2>
+                                <h2 class="text-white" v-if="textstory == 1 || textstory == 2 || textstory == 3">
+                                        (คำบรรยาย)
+                                </h2>
+                            </div>  
+                        </v-col>
+                    </v-row>
+                    <v-row class="justify-center">
+                        <v-col cols="11">
+                            <div v-if="textstory == 0">
+                                <p class="text-secondary idfont font-weight-bold">
+                                    19.48 ดูเหมือนวันนี้เธอจะมีคอลแลปกับคนอื่นด้วย เห็นว่าเป็นคนที่สุดยอดมากๆ จะเป็นใครกันนะ?
+                                </p>
+                            </div>    
+                            <div v-if="textstory == 1">
+                                <p class="text-secondary idfont font-weight-bold">
+                                    [เช็คเว็บบอร์ด]<br/><br/>
+                                </p>
+                            </div>
+                            <div v-if="textstory == 2 || textstory == 3">
+                                <p class="text-secondary idfont font-weight-bold">
+                                    [โพส]<br/><br/>
+                                </p>
+                            </div>     
+                            <div v-if="textstory == 19">
+                                <p class="text-secondary idfont font-weight-bold">
+                                    หลังจากนั้นทั้งสองคนก็เล่นเกมที่ว่าจนจบไปด้วยดี ถึงจะสะดุ้งเสียงกรี๊ดไปหลายรอบก็เถอะ แต่แบบนั้นก็น่ารักดีเหมือนกันไม่ใช่หรอ?
+                                </p>
+                            </div> 
+                            <div v-if="textstory == 20">
+                                <p class="text-secondary idfont font-weight-bold">
+                                    แต่เล่นกันจนดึกแบบนี้ ตัวเราเองก็ง่วงแล้วด้วย นอนก่อนค่อยว่ากันพรุ่งนี้ละกันนะ...
+                                </p>
+                            </div>  
+                    
+                        </v-col>
+                    </v-row>
+                    <v-row class="justify-end">
+                        <v-col cols="12"></v-col>
+                        <v-btn
+                        v-if="textstory != 2 && textstory != 3"
+                            class="mt-n3 mr-5"
+                            variant="text"
+                            icon="mdi-chevron-right"
+                            color="primary"
+                            @click = "story()"
+                        >
+                        </v-btn>
+                    </v-row>
+                    
+                    </v-img>
+                        
+                    </v-col>
+                <v-col cols="3" class="">
+                    <v-img
+                    height="200"
+                    src="@/assets/other/Spritebox_Small.png"
+                    >
+                        <div v-if="textstory == 1 || textstory == 4 || textstory >= 5 || textstory <= 10 || textstory >= 14 || textstory <= 16">
+                            <v-img
+                                height="200"
+                                src="@/assets/mc/MC00.png"
+                            />
+                        </div>
+                        <div v-if="textstory == 3 || textstory >= 17 || textstory >= 19">
+                            <v-img
+                                height="200"
+                                src="@/assets/mc/MC01.png"
+                            />
+                        </div>
+                        <div v-if="textstory == 0 || textstory == 2 ">
+                            <v-img
+                                height="200"
+                                src="@/assets/mc/MC05.png"
+                            />
+                        </div>
+                        <div v-if="textstory >= 11 || textstory <= 13">
+                            <v-img
+                                height="200"
+                                src="@/assets/mc/MC06.png"
+                            />
+                        </div>
+                    </v-img>
+                </v-col>
+              </v-row>
+          
+          
+        </v-responsive>
+      </v-container>
+    </v-img>
+    </Transition>
+    <Transition  name="fade">
+        <v-img
+            v-if="componum == 0 && typepage == 1" 
             src="@/assets/background/Background4.jpg"
         >
       <v-container>
@@ -21,13 +297,13 @@
                 <div v-if="textstory >= 4 && textstory <= 18">
                     <v-img
                     class="ml-5 mr-5"   
-                        
+                    max-height="500"
                         cover
                         src="@/assets/background/BG01_Streamerroom1.jpg"
                     >
                         <v-img
                             v-if="this.textstory == 4"
-                            height="500"
+                            height="470"
                             src="@/assets/kwaii/KS00.gif"
                         >
                             <v-col cols="12" class="mt-12"></v-col>
@@ -602,254 +878,9 @@
                         </v-img>
                     </v-img>
                 </div>
-                <div v-if="textstory >= 1 && textstory <= 3">
-                    <v-img 
-                        class="ml-5 mr-5"
-                                src="@/assets/other/bgwebboard1.jpg"
-                                
-                                max-height="500"
-                                cover
-                            >
-                    <v-row class="justify-center">
-                        
-                            <v-col cols="8" v-if="this.post == 0">
-                                <v-card  width="680" max-height="447" class="mt-8 mb-1" color="grey-lighten-5">
-                                    <v-card-text>
-                                        <v-list-item
-                                            v-for="folder in folders"
-                                            :key="folder.title"
-                                            :title="folder.title"
-                                            :subtitle="folder.subtitle"  
-                                            :type = "divider"
-                                            class="mt-n1"
-                                        >
-                                            <template v-slot:prepend>
-                                                <v-avatar size="30" class="mt-n3" :color = "folder.color">
-                                                </v-avatar>
-                                            </template>
-
-                                            <template v-slot:append>
-                                                <v-btn
-                                                    @click = "reportfuntion(folder)"
-                                                    class="mt-n3"
-                                                    :color="folder.report"
-                                                    icon="mdi-information-outline"
-                                                    variant="text"
-                                                    size="small"
-                                                ></v-btn>
-                                            </template>
-                                            <v-btn
-                                                class=""
-                                                v-if="folder.like == 1"
-                                                :color="folder.report"
-                                                icon="mdi-heart"
-                                                variant="text"
-                                                size="small"
-                                            ></v-btn>
-                                            <v-btn
-                                                @click = "likefuntion(folder)"
-                                                v-if="folder.like == 0"
-                                                :color="folder.report"
-                                                icon="mdi-heart-outline"
-                                                variant="text"
-                                                size="small"
-                                            ></v-btn>
-                                            <v-btn
-                                                :color="folder.report"
-                                                icon="mdi-message-outline"
-                                                variant="text"
-                                                size="small"
-                                            ></v-btn>
-                                    
-                                        </v-list-item>
-                                    </v-card-text>
-                                </v-card>
-                            </v-col>
-
-                            <v-col cols="8" v-if="this.post == 1">
-                                <v-card  width="680" min-height="447" class="mt-8 mb-1" color="grey-lighten-5">
-                                    <v-card-text>
-                                        <v-col cols="12" class="mt-12"></v-col>
-                                        <v-col cols="12" class=""></v-col>
-                                        <v-row class="justify-center">
-                                    <v-col cols="10">
-                                        <v-btn variant="outlined" @click = "postfuntion(1)" color="secondary" block rounded="xl" size="x-large">
-                                            คอแลปวันนี้ต้องสนุกแน่ๆ รอไม่ไหวแล้ว !
-                                        </v-btn>
-                                    </v-col>
-                                    <v-col cols="10">
-                                        <v-btn variant="outlined" @click = "postfuntion(2)" color="secondary" block rounded="xl" size="x-large">
-                                            คอแลปหรอ กับใครก็ได้แหละแค่ขอได้เห็นเธอก็พอ
-                                        </v-btn>
-                                    </v-col>
-                                    <v-col cols="10">
-                                        <v-btn variant="outlined" @click = "postfuntion(3)" color="secondary" block rounded="xl" size="x-large">
-                                            วันนี้มีคอแลปหรอ จะเป็นใครนะ <br/> ไม่อยากให้เป็นผู้ชายเลย
-                                        </v-btn>
-                                    </v-col>
-                                </v-row>
-                                        
-                                    </v-card-text>
-                                </v-card>
-                                
-                            </v-col>
-                        <v-col cols="1" class="ml-12 mr-n12">
-                            <v-col cols="12" class="ml-12 mr-n12"></v-col>
-                            
-                            <v-row class="justify-end mr-n8">
-                                <v-col cols="12" class="mt-12"></v-col>
-                            <v-col cols="12" class="mt-12"></v-col>
-                            <v-col cols="12" class="mt-12"></v-col>
-                            <v-col cols="12" class="mt-12"></v-col>
-                            <v-col cols="12" class="mt-6"></v-col>
-                                <v-btn
-                                    color="white"
-                                    icon="mdi-bell"
-                                    variant="text"
-                                    size="x-large"
-                                    v-if="textstory >= 3"
-                                    @click = "story()"
-                                >
-                                    <v-badge  size="x-large" color="red">
-                                        <v-icon size="x-large">mdi-bell</v-icon>
-                                    </v-badge>
-                                </v-btn>
-                                <v-btn
-                                    color="white"
-                                    icon="mdi-bell"
-                                    variant="text"
-                                    size="x-large"
-                                    v-if="textstory < 3"
-                                >
-                                    
-                                        <v-icon size="x-large">mdi-bell</v-icon>
-            
-                                </v-btn>
-                            </v-row>
-                            <v-row class="justify-end mr-n8">
-                                <v-btn
-                                        color="white"
-                                        icon="mdi-border-color"
-                                        variant="text"
-                                        size="x-large"
-                                        v-if="this.postbutton == true"
-                                        @click = "this.post = 1"
-                                    >
-                                    <v-icon size="x-large">mdi-border-color</v-icon>
-                                </v-btn>
-                                    <v-btn
-                                        color="white"
-                                        icon="mdi-border-color"
-                                        variant="text"
-                                        size="x-large"
-                                        v-if="this.postbutton == false"
-                                    >
-                                    <v-icon size="x-large">mdi-border-color</v-icon>
-                                </v-btn>
-                            </v-row>
-                        </v-col>
-                        
-                    </v-row>
-                    </v-img>
-                </div>
     
             </v-col>
           </v-row>
-          <v-row class="justify-center"  v-if="this.chatstory == 0">
-                <v-col cols="6" class="">
-                    <v-img
-                    cover
-                            src="@/assets/other/Textbox01.png"
-                    >
-                    <v-row>
-                        <v-col cols="12" class="ml-5 mt-1">
-                            <div>
-                                <h2 class="text-white" v-if="textstory == 0 || textstory == 19 || textstory == 20 ">
-                                    {{ mc_name }}
-                                </h2>
-                                <h2 class="text-white" v-if="textstory == 1 || textstory == 2 || textstory == 3">
-                                        (คำบรรยาย)
-                                </h2>
-                            </div>  
-                        </v-col>
-                    </v-row>
-                    <v-row class="justify-center">
-                        <v-col cols="11">
-                            <div v-if="textstory == 0">
-                                <p class="text-secondary idfont font-weight-bold">
-                                    19.48 ดูเหมือนวันนี้เธอจะมีคอลแลปกับคนอื่นด้วย เห็นว่าเป็นคนที่สุดยอดมากๆ จะเป็นใครกันนะ?
-                                </p>
-                            </div>    
-                            <div v-if="textstory == 1">
-                                <p class="text-secondary idfont font-weight-bold">
-                                    [เช็คเว็บบอร์ด]<br/><br/>
-                                </p>
-                            </div>
-                            <div v-if="textstory == 2 || textstory == 3">
-                                <p class="text-secondary idfont font-weight-bold">
-                                    [โพส]<br/><br/>
-                                </p>
-                            </div>     
-                            <div v-if="textstory == 19">
-                                <p class="text-secondary idfont font-weight-bold">
-                                    หลังจากนั้นทั้งสองคนก็เล่นเกมที่ว่าจนจบไปด้วยดี ถึงจะสะดุ้งเสียงกรี๊ดไปหลายรอบก็เถอะ แต่แบบนั้นก็น่ารักดีเหมือนกันไม่ใช่หรอ?
-                                </p>
-                            </div> 
-                            <div v-if="textstory == 20">
-                                <p class="text-secondary idfont font-weight-bold">
-                                    แต่เล่นกันจนดึกแบบนี้ ตัวเราเองก็ง่วงแล้วด้วย นอนก่อนค่อยว่ากันพรุ่งนี้ละกันนะ...
-                                </p>
-                            </div>  
-                    
-                        </v-col>
-                    </v-row>
-                    <v-row class="justify-end">
-                        <v-col cols="12"></v-col>
-                        <v-btn
-                            class="mt-n3 mr-5"
-                            variant="text"
-                            icon="mdi-chevron-right"
-                            color="primary"
-                            @click = "story()"
-                        >
-                        </v-btn>
-                    </v-row>
-                    
-                    </v-img>
-                        
-                    </v-col>
-                <v-col cols="3" class="">
-                    <v-img
-                    height="200"
-                    src="@/assets/other/Spritebox_Small.png"
-                    >
-                        <div v-if="textstory == 1 || textstory == 4 || textstory >= 5 || textstory <= 10 || textstory >= 14 || textstory <= 16">
-                            <v-img
-                                height="200"
-                                src="@/assets/mc/MC00.png"
-                            />
-                        </div>
-                        <div v-if="textstory == 3 || textstory >= 17 || textstory >= 19">
-                            <v-img
-                                height="200"
-                                src="@/assets/mc/MC01.png"
-                            />
-                        </div>
-                        <div v-if="textstory == 0 || textstory == 2 ">
-                            <v-img
-                                height="200"
-                                src="@/assets/mc/MC05.png"
-                            />
-                        </div>
-                        <div v-if="textstory >= 11 || textstory <= 13">
-                            <v-img
-                                height="200"
-                                src="@/assets/mc/MC06.png"
-                            />
-                        </div>
-                    </v-img>
-                </v-col>
-              </v-row>
               <v-row class="justify-center" v-if="this.chatstory >= 1">
                 <v-col cols="6" class="">
                     <v-img
@@ -1089,13 +1120,18 @@
         </v-responsive>
       </v-container>
     </v-img>
+    </Transition>
+    <Transition name="fade">
     <compo :mc_name="mcname" v-if="componum == 1" />
+    </Transition>
     </div>
     </template>
     
     <script>
     import { useRouter } from 'vue-router';
     import compo from '@/components/Chapter4compo.vue'
+    import sound1 from '@/assets/song/Labyrinth_In_The_Head.mp3'
+    import sound2 from '@/assets/song/Labyrinth.mp3'
     export default {
         name : "Chapter3compo",
         props: { mc_name: String },
@@ -1112,6 +1148,9 @@
                 postbutton: false,
                 componum: 0,
                 mcname : "",
+                player1 : new Audio(sound1),
+                player2 : new Audio(sound2),
+                typepage : 0,
                 folders: [
                 {
                     subtitle: 'น่ารักจนอยากกินเข้าไปเลย',
@@ -1178,11 +1217,18 @@
                 this.textstory = this.textstory + 1
                 console.log(this.textstory)
                 if(this.textstory == 21){
+                    this.player1.pause()
+                    this.player2.pause()
                     this.mcname = this.mc_name
                     this.componum = 1
+                    
                 }
                 if(this.textstory == 4){
                     //1
+                    this.typepage = 1
+                    this.player1.pause()
+                    this.soundtype = 1
+                    this.playsound()
                     this.chatstory = this.chatstory + 1
                     setTimeout(() => this.sendtext(), 500);
                 }
@@ -1239,6 +1285,12 @@
                 else if(this.textstory == 19){
                     //8
                     this.chatstory = 0
+                    this.typepage = 0
+                    this.chatstory = 0
+                    this.player2.pause()
+                    this.soundtype = 0
+                    this.playsound()
+
                 }
             },
         
@@ -1410,6 +1462,30 @@
                     setTimeout(() => this.chattext(), 500);
                 }
             },
+            loopsound()
+            {
+                if(this.soundtype == 0){
+                    setTimeout(() => this.playsound(), 135000);
+                }
+                else if(this.soundtype == 1){
+                    // setTimeout(() => this.playsound(), 122000);
+                }
+                
+            },
+            playsound(){
+                if(this.soundtype == 0){
+                    this.player1.play()
+                    this.loopsound()
+                }
+                else if(this.soundtype == 1){
+                    this.player2.play()
+                    this.loopsound()
+                }
+            }
+        },
+        created(){
+            this.playsound()
+            // this.player2.pause()
         }
     }
 

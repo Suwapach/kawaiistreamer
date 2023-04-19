@@ -159,7 +159,7 @@
                     </v-img>
 
                 </div>
-                
+                <Transition  name="fade">
                 <div v-if="textstory >= 6 || textstory >= 8">
                     <v-img
                     class="ml-5 mr-5"   
@@ -175,23 +175,24 @@
                             <v-col cols="12"></v-col>
                             <v-col cols="12"></v-col>
                             <v-col cols="8"  v-if="textstory == 7">
-                                <v-btn variant="outlined" @click = "selectchoice(1)" block background-color="white" color="primary" rounded="xl" size="x-large">
+                                <v-btn variant="flat" @click = "selectchoice(1)" block   color="primary" rounded="xl" size="x-large">
                                     เขียนจดหมายขอบคุณ
                                 </v-btn>
                             </v-col>
                             <v-col cols="8" v-if="textstory == 7">
-                                <v-btn variant="outlined" @click = "selectchoice(2)" block background-color="white" color="primary" rounded="xl" size="x-large">
+                                <v-btn variant="flat" @click = "selectchoice(2)" block background-color="white" color="primary" rounded="xl" size="x-large">
                                     จดหมายแสดงความรักมากๆ
                                 </v-btn>
                             </v-col>
                             <v-col cols="8" v-if="textstory == 7">
-                                <v-btn variant="outlined" @click = "selectchoice(3)" block background-color="white" color="primary" rounded="xl" size="x-large">
+                                <v-btn variant="flat" @click = "selectchoice(3)" block background-color="white" color="primary" rounded="xl" size="x-large">
                                     จดหมายต่อว่าเรื่องสนใจแฟนคลับคนอื่นมากกว่า
                                 </v-btn>
                             </v-col>
                         </v-row>
                     </v-img>
                 </div>
+                </Transition>
             </v-col>
           </v-row>
           <v-row class="justify-center">
@@ -265,6 +266,7 @@
                     <v-row class="justify-end">
                         <v-col cols="12"></v-col>
                         <v-btn
+                            v-if="textstory != 2 && textstory != 7"
                             class="mt-n3 mr-5"
                             variant="text"
                             icon="mdi-chevron-right"
@@ -315,7 +317,9 @@
         </v-responsive>
       </v-container>
     </v-img>
+    <Transition  name="fade">
     <compo5c :mc_name="mcname" v-if="componum == 1" />
+    </Transition>
     </div>
     </template>
     
@@ -550,5 +554,20 @@
 
     </script>
     <style>
-    
+    .fade-enter-from{
+  opacity: 0;
+}
+.fade-enter-to{
+  opacity: 1;
+}
+
+.fade-enter-active{
+  transition: all 2s ease;
+}
+.idfont {
+    font-size: 17px;
+} 
+.longtextfont {
+    font-size: 16px;
+} 
     </style>

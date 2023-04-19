@@ -1,6 +1,8 @@
 <template>
     <div>
+        <Transition name="fade">
         <v-img
+        v-if="componum == 0 && typepage == 0" 
             cover
             src="@/assets/background/Background4.jpg"
         >
@@ -171,6 +173,127 @@
 
                     </v-img>
                     </div>
+            </v-col>
+          </v-row>
+          <v-row class="justify-center">
+                <v-col cols="6" class="mt-2">
+                    <v-img
+                            height="200"
+                            src="@/assets/other/Textbox01.png"
+                    >
+                    <v-row>
+                        <v-col cols="12" class="ml-5">
+                            <div>
+                                <h2 class="text-white" v-if="textstory == 0 || textstory == 4 || textstory == 5 || textstory == 7 || textstory == 8 ">
+                                    {{ mc_name }}
+                                </h2>
+                                <h2 class="text-white" v-if="textstory == 1 || textstory == 2 || textstory == 3 || textstory == 6">
+                                        (คำบรรยาย)
+                                </h2>
+                            </div>  
+                        </v-col>
+                    </v-row>
+                    <v-row class="justify-center">
+                        <v-col cols="11">
+                            <div v-if="textstory == 0">
+                                <p class="text-secondary idfont font-weight-bold">
+                                    สัปดาห์นึงผ่านไปไวกว่าที่คิด ในที่สุดวันนี้ก็จะได้ดูไลฟ์ของสตรีมเมอร์สาวคนนั้นแล้วหลังจากเหนื่อยมาตลอด ก่อนหน้านั้นเช็คเว็บบอร์ดหน่อยดีกว่า
+
+                                </p>
+                            </div>    
+                            <div v-if="textstory == 1">
+                                <p class="text-secondary idfont font-weight-bold">
+                                    [เช็คเว็บบอร์ด รีแอค]
+                                </p>
+                            </div>    
+                            <div v-if="textstory == 2 || textstory == 3">
+                                <p class="text-secondary idfont font-weight-bold">
+                                    [เช็คเว็บบอร์ด โพสต์]
+                                </p>
+                            </div>                   
+                        </v-col>
+                    </v-row>
+                    <v-row class="justify-end">
+                        <v-col cols="12"></v-col>
+                        <v-btn
+                        class="mt-n3 mr-5"
+                            variant="text"
+                            icon="mdi-chevron-right"
+                            color="primary"
+                            @click = "story()"
+                            v-if="this.postbutton == false"
+                        >
+                        </v-btn>
+                    </v-row>
+                    
+                    </v-img>
+                        
+                    </v-col>
+                <v-col cols="3" class="mt-2">
+                    <v-img
+                    height="200"
+                    src="@/assets/other/Spritebox_Small.png"
+                    >
+                        <div v-if="textstory == 0 || textstory == 1 || textstory == 7 || textstory == 8 || textstory == 9 || textstory == 10 || textstory == 13">
+                            <v-img
+                                height="200"
+                                src="@/assets/mc/MC00.png"
+                            />
+                        </div>
+                        <div v-if="textstory == 5 || textstory == 6 || textstory == 13">
+                            <v-img
+                                height="200"
+                                src="@/assets/mc/MC01.png"
+                            />
+                        </div>
+                        <div v-if="textstory == 3 || textstory == 2">
+                            <v-img
+                                height="200"
+                                src="@/assets/mc/MC05.png"
+                            />
+                        </div>
+                        <div v-if="textstory == 11 || textstory == 12 || textstory == 17 || textstory == 18">
+                            <v-img
+                                height="200"
+                                src="@/assets/mc/MC08.png"
+                            />
+                        </div>
+                        <div v-if="textstory == 4 ">
+                            <v-img
+                                height="200"
+                                src="@/assets/mc/MC02.png"
+                            />
+                        </div>
+                        <div v-if="textstory == 14 || textstory == 15 || textstory == 16">
+                            <v-img
+                                height="200"
+                                src="@/assets/mc/MC03.png"
+                            />
+                        </div>
+                       
+                    </v-img>
+                </v-col>
+              </v-row>
+          
+    
+          
+        </v-responsive>
+       
+      </v-container>
+    </v-img>
+    </Transition>
+
+    <Transition name="fade">
+        <v-img
+        v-if="componum == 0 && typepage == 1" 
+            cover
+            src="@/assets/background/Background4.jpg"
+        >
+      <v-container>
+        <v-responsive v-if="this.textstory <= 18" >
+          <v-row class="justify-center">
+            <v-col cols="10">
+               
 
                 
             
@@ -408,7 +531,7 @@
                             <v-row class="justify-center">
                                 <v-col cols="11">
                                     <v-img
-                                    v-if="this.textstory == 9 || this.textstory == 13"
+                                    
                                         src="@/assets/other/Textbox_A.png"
                                     >
                                         <v-row>
@@ -433,9 +556,25 @@
                                                     </p>
                                                 </div>
                                                 
+                                                <div v-if="textstory == 14">
+                                                    <p class="text-secondary idfont font-weight-bold">
+                                                        ‘ถึงคาสุจัง สวัสดีครับคาสุจัง ผมเป็นผู้ติดตามหน้าใหม่ที่เพิ่งมาติดตามได้ไม่นานแต่ผมรู้สึกชอบคาสุจังมากๆเลย ขอบคุณที่คอยมาสร้างสีสันให้ชีวิตในแต่ละวันของผมนะครับ
+                                                    </p>
+                                                </div>
+                                                <div v-if="textstory == 15">
+                                                    <p class="text-secondary idfont font-weight-bold">
+                                                        ผมชอบคาสุจังมากๆเลย ทั้งๆที่ชอบเธอแค่คนเดียวแท้ๆ แต่เธอก็ยังสนใจคนอื่นนอกจากตัวผมอยู่ดี… <br/><br/>
+                                                    </p>
+                                                </div>
+                                                <div v-if="textstory == 16">
+                                                    <p class="text-secondary longtextfont font-weight-bold">
+                                                        ช่วยบอกทีสิ ว่าผมต้องทำยังไงคาสุจังถึงจะเลิกมองคนอื่นแล้วมาสนใจแค่ผม ผมไม่ชอบเลย ผมรักคาสุจังมากๆเลยนะ สนใจแค่ผมได้ไหม คนอื่นจะเป็นยังไงก็ไม่ต้องสนใจหรอก จะให้จ่ายเท่าไหร่ผมก็ยอม เพราะงั้นช่วยมองแค่ผมได้ไหม’ 
+                                                    </p>
+                                                </div>
+                                                
                                             </v-col>
                                         </v-row>
-                                        <v-row class="justify-end" v-if="this.textstory == 9 || this.textstory == 13">
+                                        <v-row class="justify-end">
                                         <v-col cols="12"></v-col>
                                         <v-btn
                                             class="mt-n10 mr-5"
@@ -450,7 +589,56 @@
                                 </v-col>
                             </v-row>
                         </v-img>
-                      
+                        
+                        <Transition name="fade">
+                        <div v-if="this.textstory == 18">
+                            <v-col cols="12" class="mt-12"></v-col>
+                            <v-col cols="12" class="mt-12"></v-col>
+                            <v-col cols="12" class="mt-12"></v-col>
+                            <v-col cols="12" class="mt-12"></v-col>
+                       
+                            <v-row class="justify-center">
+                                <v-col cols="11">
+                                    <v-img
+                                    
+                                        src="@/assets/other/Textbox_A.png"
+                                    >
+                                        <v-row>
+                                            <v-col cols="12" class="ml-5">
+                                                <div>
+                                                    <h3 class="text-white mt-1 mb-n3" >
+                                                        Kawaii Streamer
+                                                    </h3>
+                                                </div>  
+                                            </v-col>
+                                        </v-row>
+                                        <v-row class="justify-center">
+                                            <v-col cols="11" class="mt-2">
+                                            
+                                                <div v-if="textstory == 18">
+                                                    <p class="text-secondary idfont font-weight-bold">
+                                                        [สตรีมเมอร์สาวไม่ได้พูดอะไรต่อ หน้าจอสตรีมมิ่งกลายเป็นสีดำปล่อยให้แชทงุนงงกับสิ่งที่เกิดขึ้น ผ่านไปไม่นาน ไลฟ์สตรีมก็ถูกปิดลง]
+                                                    </p>
+                                                </div>
+                                                
+                                            </v-col>
+                                        </v-row>
+                                        <v-row class="justify-end">
+                                        <v-col cols="12"></v-col>
+                                        <v-btn
+                                            class="mt-n10 mr-5"
+                                            variant="text"
+                                            icon="mdi-chevron-right"
+                                            color="primary"
+                                            @click = "story()"
+                                        >
+                                        </v-btn>
+                                    </v-row>
+                                    </v-img>
+                                </v-col>
+                            </v-row>
+                    </div>
+                    </Transition>
                         <v-img
                         v-if="this.textstory == 17 || this.textstory == 12"
                             height="470"
@@ -681,62 +869,88 @@
                 </v-col>
               </v-row>
           
-    
+    </v-responsive>
+    </v-container>
           
-        </v-responsive>
-        <v-responsive  v-if="this.textstory >= 19">
-            <v-row class="justify-center">
-                <v-col cols="10">
-                    <v-row class="justify-center mt-3">
-                        <v-img
-                        max-height="500"
-                        class="ml-5 mr-5" 
-                        src="@/assets/cutsence/CG06.jpg"
-                        />
-                    </v-row>
-                </v-col>
-                <v-col cols="6" class="mt-5">
-                    <v-row class="justify-center">
-                        <p>
-                        [หลังจากปิดไลฟ์ สตรีมเมอร์สาวโดนสตอล์กเกอร์ตามถึงบ้าน 
-                        </p>
-                    </v-row>
-                    <v-row class="justify-center">
-                        <p>
-                            และเกิดเรื่องที่ทำให้สตรีมเมอร์สาวได้หายไปจากช่องของเธอเป็นเวลานาน]
-                        </p>
-                    </v-row>
-                    
-                    <v-row class="justify-center">
-                        <p>
-                            [หลังจากนั้นหลายเดือนก็ยังหาตัวเธอไม่พบ..]
-                        </p>
-                    </v-row>
-                    <v-row class="justify-center">
-                        <h2>
-                            END
-                        </h2>
-                    </v-row>
-                    
-                    
-            
-                </v-col>
-            </v-row>
-        </v-responsive>
-      </v-container>
     </v-img>
+    </Transition>
+
+<Transition name="fade">
+    <v-img
+    v-if="componum == 0 && typepage == 2" 
+        cover
+        src="@/assets/background/Background4.jpg"
+    >
+    <v-container>
+    <v-responsive  v-if="this.textstory >= 19">
+        <v-row class="justify-center">
+            <v-col cols="10">
+                <v-row class="justify-center mt-3">
+                    <v-img
+                    max-height="500"
+                    class="ml-5 mr-5" 
+                    src="@/assets/cutsence/CG06.jpg"
+                    />
+                </v-row>
+            </v-col>
+            <v-col cols="6" class="mt-5">
+                <v-row class="justify-center">
+                    <p class="mt-2 idfont text-primary font-weight-bold">
+                    [หลังจากปิดไลฟ์ สตรีมเมอร์สาวโดนสตอล์กเกอร์ตามถึงบ้าน 
+                    </p>
+                </v-row>
+                <v-row class="justify-center idfont">
+                    <p class="mt-1 idfont text-primary font-weight-bold">
+                        และเกิดเรื่องที่ทำให้สตรีมเมอร์สาวได้หายไปจากช่องของเธอเป็นเวลานาน]
+                    </p>
+                </v-row>
+                
+                <v-row class="justify-center">
+                    <p class="mt-1 idfont text-primary font-weight-bold">
+                        [หลังจากนั้นหลายเดือนก็ยังหาตัวเธอไม่พบ..]
+                    </p>
+                </v-row>
+            
+                    <h2 class="test text-center mt-5 text-primary font-weight-bold">
+                        END
+                    </h2>
+               
+                
+                
+        
+            </v-col>
+        </v-row>
+    </v-responsive>
+  </v-container>
+</v-img>
+</Transition>
+
+    
     </div>
     </template>
     
     <script>
+     import sound1 from '@/assets/song/Labyrinth_In_The_Head.mp3'
+    import sound2 from '@/assets/song/Labyrinth.mp3'
+    import sound3 from '@/assets/song/Magical_Black_Cat.mp3'
+    
     export default {
         name : "Chapter5badcompo",
-
+        props: { mc_name: String },
         data() {
             return {
                 textstory : 0,
                 post : 0,
+        
+                chatnum: 0,
+                chatstory : 0,
                 postbutton: false,
+                componum: 0,
+                mcname : "",
+                player1 : new Audio(sound1),
+                player2 : new Audio(sound2),
+                player3 : new Audio(sound3),
+                typepage : 0,
                 folders: [
                 {
                     subtitle: 'วันนี้สตรีมเปิดของขวัญกับอ่านจดหมายปะ ถ้าถึงของเราต้องเขินมากแน่ ๆ เลย ฮือ',
@@ -807,6 +1021,14 @@
                 }
                 else if(this.textstory == 14 ){
                     this.postbutton = false
+                }
+                else if(this.textstory == 4 ){
+                    this.typepage = 1
+                    
+                }
+                else if(this.textstory == 19 ){
+                    this.typepage = 2
+                    
                 }
             },
             likefuntion(like){
@@ -936,5 +1158,23 @@
 
     </script>
     <style>
-    
+     .fade-enter-from{
+  opacity: 0;
+}
+.fade-enter-to{
+  opacity: 1;
+}
+
+.fade-enter-active{
+  transition: all 2s ease;
+}
+.idfont {
+    font-size: 17px;
+} 
+.longtextfont {
+    font-size: 16px;
+} 
+.test {
+    font-size: 20px;
+} 
     </style>

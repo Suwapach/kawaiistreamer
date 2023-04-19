@@ -21,8 +21,8 @@
             src="@/assets/background/Background4.jpg"
         >
        
-      <v-container>
-        <v-responsive >
+      <v-container class="mt-3">
+        <v-responsive  >
           <v-row class="justify-center">
             <v-col cols="10">
                 <Transition name="fade">
@@ -34,21 +34,24 @@
                                 src="@/assets/other/bgwebboard1.jpg"
                                 
                                 max-height="500"
+                        
                                 cover
                             >
                             <v-row class="justify-center">
                                 <v-col cols="8" v-if="this.post == 0">
-                                    <v-card width="680" max-height="447" class="mt-8 mb-n1"
-                                    color="grey-lighten-5">
+                                    <v-card width="680" max-height="447" class="mt-8 mb-1" color="grey-lighten-5" 
+                                    >
                                         <v-card-text>
                                             <v-list-item
                                                 
                                                 v-for="folder in folders"
                                                 :key="folder.title"
                                                 :title="folder.title"
+
                                                 :subtitle="folder.subtitle"  
                                                 :type = "divider"
                                                 class="mt-n1"
+                                               
                                             >
                                                 <template v-slot:prepend>
                                                     <v-avatar size="30" class="mt-n3" :color = "folder.color">
@@ -58,7 +61,7 @@
                                                 <template v-slot:append>
                                                     <v-btn
                                                         @click = "reportfuntion(folder)"
-                                                        class="mt-n3"
+                                                        class="mt-3"
                                                         :color="folder.report"
                                                         icon="mdi-information-outline"
                                                         variant="text"
@@ -72,6 +75,7 @@
                                                     icon="mdi-heart"
                                                     variant="text"
                                                     size="small"
+                                                   
                                                 ></v-btn>
                                                 <v-btn
                                                     @click = "likefuntion(folder)"
@@ -180,7 +184,7 @@
                     <v-img
                     class="ml-5 mr-5"
                     max-height="500"
-                    cover
+                            cover
 
                         src="@/assets/other/Untitled-1.png"
                     >
@@ -192,7 +196,7 @@
                     <v-img
                     class="ml-5 mr-5"
                     max-height="500"
-                    cover
+                            cover
                         src="@/assets/cutsence/CG02.jpg"
                     >
                    
@@ -201,7 +205,7 @@
             </v-col>
           </v-row>
           <v-row class="justify-center">
-                <v-col cols="6" class="">
+                <v-col cols="6">
                     <v-img
                    
                     cover
@@ -220,10 +224,10 @@
                         </v-col>
                     </v-row>
                     <v-row class="justify-center">
-                        <v-col cols="11">
+                        <v-col cols="11" >
                             <div v-if="textstory == 0">
                                 <p class="text-secondary idfont font-weight-bold">
-                                    13.04 โชคดีที่วันนี้เป็นวันเสาร์ ไม่ต้องไปโรงเรียนหรือออกไปเจอเรื่องวุ่นวาย...
+                                    13.04 โชคดีที่วันนี้เป็นวันเสาร์ ไม่ต้องไปโรงเรียนหรือออกไปเจอเรื่องวุ่นวาย...<br/>
                                 </p>
                             </div>    
                             <div v-if="textstory == 1">
@@ -274,25 +278,25 @@
                     >
                         <div v-if="textstory == 0 || textstory == 1 || textstory == 3 ">
                             <v-img
-                                height="200"
+                            height="200"
                                 src="@/assets/mc/MC00.png"
                             />
                         </div>
                         <div v-if="textstory == 5">
                             <v-img
-                                height="200"
+                            height="200"
                                 src="@/assets/mc/MC01.png"
                             />
                         </div>
                         <div v-if="textstory == 2 || textstory == 3">
                             <v-img
-                                height="200"
+                            height="200"
                                 src="@/assets/mc/MC08.png"
                             />
                         </div>
                         <div v-if="textstory == 4 ">
                             <v-img
-                                height="200"
+                            height="200"
                                 src="@/assets/mc/MC05.png"
                             />
                         </div>
@@ -398,9 +402,9 @@
             story(){
                 this.textstory = this.textstory + 1
                 if(this.textstory == 6){
+                    this.player1.pause()
                     this.mcname = this.mc_name
                     this.componum = 1
-                    this.player1.pause()
                 }
                 if(this.textstory == 3){
                     this.dialog = true
@@ -552,12 +556,13 @@
 
     </script>
     <style>
-     .idfont {
+    .idfont {
     font-size: 17px;
 } 
 .longtextfont {
     font-size: 16px;
 } 
+
 .fade-enter-from{
   opacity: 0;
 }
@@ -568,7 +573,7 @@
 .fade-enter-active{
   transition: all 2s ease;
 }
-.fade-leave-from{
+/* .fade-leave-from{
     opacity: 1;
 }
 .fade-leave-to{
@@ -576,5 +581,5 @@
 }
 .fade-leave-active{
   transition: all 2s ease;
-}
+} */
     </style>

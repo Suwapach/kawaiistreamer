@@ -1,6 +1,8 @@
 <template>
     <div>
+        <Transition name="fade">
         <v-img
+        v-if="componum == 0 && typepage == 0" 
             cover
             src="@/assets/background/Background4.jpg"
         >
@@ -21,7 +23,7 @@
                     <v-row class="justify-center">
                        
                             <v-col cols="8" v-if="this.post == 0">
-                                <v-card  width="620" max-height="447" class="mt-8 mb-n1" color="grey-lighten-5">
+                                <v-card  width="680" max-height="447" class="mt-8 mb-n1" color="grey-lighten-5">
                                     <v-card-text>
                                         <v-list-item
                                             v-for="folder in folders"
@@ -29,7 +31,7 @@
                                             :title="folder.title"
                                             :subtitle="folder.subtitle"  
                                             :type = "divider"
-                                            class="mt-n1"
+                                            class="mt-n2"
                                         >
                                             <template v-slot:prepend>
                                                 <v-avatar size="30" class="mt-n3" :color = "folder.color">
@@ -75,10 +77,10 @@
                             </v-col>
 
                             <v-col cols="8" v-if="this.post == 1">
-                                <v-card  width="620" min-height="447" class="mt-8 mb-1" color="grey-lighten-5">
+                                <v-card  width="680" min-height="447" class="mt-8 mb-1" color="grey-lighten-5">
                                     <v-card-text>
                                         <v-col cols="12" class="mt-12"></v-col>
-                                        <v-col cols="12" class="mt-10"></v-col>
+                                        <v-col cols="12" class=""></v-col>
                                         <v-row class="justify-center">
                                     <v-col cols="10">
                                         <v-btn variant="outlined" @click = "postfuntion(1)" color="secondary" block rounded="xl" size="x-large">
@@ -87,12 +89,12 @@
                                     </v-col>
                                     <v-col cols="10">
                                         <v-btn variant="outlined" @click = "postfuntion(2)" color="secondary" block rounded="xl" size="x-large">
-                                            อุตส่าห์ตั้งใจเขียนให้ขนาดนั้น ถ้ารีแอคไม่ดีจะโกรธจริง ๆ ด้วย
+                                            อุตส่าห์ตั้งใจเขียนให้ขนาดนั้น <br/> ถ้ารีแอคไม่ดีจะโกรธจริง ๆ ด้วย
                                         </v-btn>
                                     </v-col>
                                     <v-col cols="10">
                                         <v-btn variant="outlined" @click = "postfuntion(3)" color="secondary" block rounded="xl" size="x-large">
-                                            ยังไงเธอก็ต้องชอบจดหมายเราอยู่แล้ว แต่ถ้าไม่ชอบก็น่าจะรู้นะว่าจะโดนอะไร
+                                            ยังไงเธอก็ต้องชอบจดหมายเราอยู่แล้ว<br/> แต่ถ้าไม่ชอบก็น่าจะรู้นะว่าจะโดนอะไร
                                         </v-btn>
                                     </v-col>
                                 </v-row>
@@ -101,25 +103,59 @@
                                 </v-card>
                                 
                             </v-col>
-                        <v-col cols="1">
+                        <v-col cols="1" class="ml-12 mr-n12">
                             <v-col cols="12" class="nt-12"></v-col>
                             
-                            <v-row class="justify-end">
-                                <v-btn
-                                    color="primary"
+                            <v-row class="justify-end mr-n8">
+                                <v-col cols="12" class="mt-12"></v-col>
+                            <v-col cols="12" class="mt-12"></v-col>
+                            <v-col cols="12" class="mt-12"></v-col>
+                            <v-col cols="12" class="mt-12"></v-col>
+                            <v-col cols="12" class="mt-6"></v-col>        
+                            <v-btn
+                                    color="white"
                                     icon="mdi-bell"
                                     variant="text"
                                     size="x-large"
-                                ></v-btn>
+                                    v-if="textstory >= 3"
+                                    @click = "story()"
+                                >
+                                    <v-badge  size="x-large" color="red">
+                                        <v-icon size="x-large">mdi-bell</v-icon>
+                                    </v-badge>
+                                </v-btn>
+                                <v-btn
+                                    color="white"
+                                    icon="mdi-bell"
+                                    variant="text"
+                                    size="x-large"
+                                    v-if="textstory < 3"
+                                >
+                                    
+                                        <v-icon size="x-large">mdi-bell</v-icon>
+            
+                                </v-btn>
                             </v-row>
-                            <v-row class="justify-end">
-                                    <v-btn
-                                        color="primary"
+                            <v-row class="justify-end mr-n8">
+                                <v-btn
+                                        color="white"
                                         icon="mdi-border-color"
                                         variant="text"
                                         size="x-large"
+                                        v-if="this.postbutton == true"
                                         @click = "this.post = 1"
-                                    ></v-btn>
+                                    >
+                                    <v-icon size="x-large">mdi-border-color</v-icon>
+                                </v-btn>
+                                    <v-btn
+                                        color="white"
+                                        icon="mdi-border-color"
+                                        variant="text"
+                                        size="x-large"
+                                        v-if="this.postbutton == false"
+                                    >
+                                    <v-icon size="x-large">mdi-border-color</v-icon>
+                                </v-btn>
                             </v-row>
                         </v-col>
                         
@@ -137,10 +173,131 @@
 
                     </v-img>
                     </div>
+            </v-col>
+          </v-row>
+          <v-row class="justify-center">
+                <v-col cols="6" class="mt-2">
+                    <v-img
+                            height="200"
+                            src="@/assets/other/Textbox01.png"
+                    >
+                    <v-row>
+                        <v-col cols="12" class="ml-5">
+                            <div>
+                                <h2 class="text-white" v-if="textstory == 0 || textstory == 4 || textstory == 5 || textstory == 7 || textstory == 8 ">
+                                    {{ mc_name }}
+                                </h2>
+                                <h2 class="text-white" v-if="textstory == 1 || textstory == 2 || textstory == 3 || textstory == 6">
+                                        (คำบรรยาย)
+                                </h2>
+                            </div>  
+                        </v-col>
+                    </v-row>
+                    <v-row class="justify-center">
+                        <v-col cols="11">
+                            <div v-if="textstory == 0">
+                                <p class="text-secondary idfont font-weight-bold">
+                                    สัปดาห์นึงผ่านไปไวกว่าที่คิด ในที่สุดวันนี้ก็จะได้ดูไลฟ์ของสตรีมเมอร์สาวคนนั้นแล้วหลังจากเหนื่อยมาตลอด ก่อนหน้านั้นเช็คเว็บบอร์ดหน่อยดีกว่า
+
+                                </p>
+                            </div>    
+                            <div v-if="textstory == 1">
+                                <p class="text-secondary idfont font-weight-bold">
+                                    [เช็คเว็บบอร์ด รีแอค]
+                                </p>
+                            </div>    
+                            <div v-if="textstory == 2 || textstory == 3">
+                                <p class="text-secondary idfont font-weight-bold">
+                                    [เช็คเว็บบอร์ด โพสต์]
+                                </p>
+                            </div>                   
+                        </v-col>
+                    </v-row>
+                    <v-row class="justify-end">
+                        <v-col cols="12"></v-col>
+                        <v-btn
+                        class="mt-n3 mr-5"
+                            variant="text"
+                            icon="mdi-chevron-right"
+                            color="primary"
+                            @click = "story()"
+                            v-if="this.postbutton == false"
+                        >
+                        </v-btn>
+                    </v-row>
+                    
+                    </v-img>
+                        
+                    </v-col>
+                <v-col cols="3" class="mt-2">
+                    <v-img
+                    height="200"
+                    src="@/assets/other/Spritebox_Small.png"
+                    >
+                        <div v-if="textstory == 0 || textstory == 1 || textstory == 7 || textstory == 8 || textstory == 9 || textstory == 10 || textstory == 13">
+                            <v-img
+                                height="200"
+                                src="@/assets/mc/MC00.png"
+                            />
+                        </div>
+                        <div v-if="textstory == 5 || textstory == 6 || textstory == 13">
+                            <v-img
+                                height="200"
+                                src="@/assets/mc/MC01.png"
+                            />
+                        </div>
+                        <div v-if="textstory == 3 || textstory == 2">
+                            <v-img
+                                height="200"
+                                src="@/assets/mc/MC05.png"
+                            />
+                        </div>
+                        <div v-if="textstory == 11 || textstory == 12 || textstory == 17 || textstory == 18">
+                            <v-img
+                                height="200"
+                                src="@/assets/mc/MC08.png"
+                            />
+                        </div>
+                        <div v-if="textstory == 4 ">
+                            <v-img
+                                height="200"
+                                src="@/assets/mc/MC02.png"
+                            />
+                        </div>
+                        <div v-if="textstory == 14 || textstory == 15 || textstory == 16">
+                            <v-img
+                                height="200"
+                                src="@/assets/mc/MC03.png"
+                            />
+                        </div>
+                       
+                    </v-img>
+                </v-col>
+              </v-row>
+          
+    
+          
+        </v-responsive>
+       
+      </v-container>
+    </v-img>
+    </Transition>
+
+    <Transition name="fade">
+        <v-img
+        v-if="componum == 0 && typepage == 1" 
+            cover
+            src="@/assets/background/Background4.jpg"
+        >
+      <v-container>
+        <v-responsive v-if="this.textstory <= 19" >
+          <v-row class="justify-center">
+            <v-col cols="10">
+               
 
                 
             
-                <div v-if="textstory >= 4 && textstory <= 10 || textstory >= 12 && textstory<=18">
+                <div v-if="textstory >= 4 && textstory <= 10 || textstory >= 12 && textstory<=19">
                     <v-img
                         class="ml-5 mr-5"   
                         cover
@@ -304,7 +461,7 @@
                             </v-row>
                         </v-img>
                         <v-img
-                        v-if="this.textstory == 7 || this.textstory == 10"
+                        v-if="this.textstory == 7 || this.textstory == 10 || this.textstory == 19"
                             height="470"
                             src="@/assets/kwaii/KS00.gif"
                         >
@@ -321,7 +478,7 @@
                                         <v-row>
                                             <v-col cols="12" class="ml-5">
                                                 <div>
-                                                    <h3 class="text-white mt-1 mb-n3" v-if="textstory == 10 ">
+                                                    <h3 class="text-white mt-1 mb-n3" v-if="textstory == 10 || textstory == 19">
                                                         Kawaii Streamer
                                                     </h3>
                                                     <h3 class="text-white mt-1 mb-n3" v-if="textstory == 7">
@@ -340,6 +497,11 @@
                                                 <div v-if="textstory == 10">
                                                     <p class="text-secondary idfont font-weight-bold">
                                                         จดหมายอีกฉบับจากผู้ไม่ประสงค์ออกนาม..<br/><br/>
+                                                    </p>
+                                                </div> 
+                                                <div v-if="textstory == 19">
+                                                    <p class="text-secondary idfont font-weight-bold">
+                                                        วันนี้คงต้องพอแค่นี้ก่อน แต่สัญญาว่าจะอ่านจดหมายทุกฉบับเลย ขอบคุณมากนะทุกคน บ๊ายบาย!<br/><br/>
                                                     </p>
                                                 </div> 
                                                 
@@ -362,7 +524,7 @@
                             </v-row>
                         </v-img>
                         <v-img
-                        v-if="this.textstory == 9 || this.textstory == 13 || this.textstory == 14 || this.textstory == 15 || this.textstory == 16"
+                        v-if="this.textstory == 9 || this.textstory == 13 || this.textstory == 14 || this.textstory == 15 || this.textstory == 16 || this.textstory == 18"
                             height="470"
                             src="@/assets/kwaii/KS08.gif"
                         >
@@ -374,7 +536,7 @@
                             <v-row class="justify-center">
                                 <v-col cols="11">
                                     <v-img
-                                    v-if="this.textstory == 9 || this.textstory == 13"
+                                    
                                         src="@/assets/other/Textbox_A.png"
                                     >
                                         <v-row>
@@ -399,9 +561,30 @@
                                                     </p>
                                                 </div>
                                                 
+                                                <div v-if="textstory == 14">
+                                                    <p class="text-secondary idfont font-weight-bold">
+                                                        ‘ถึงคาสุจัง ผมเพิ่งเริ่มติดตามเธอได้ไม่นาน ผมได้แต่สงสัยว่ามันเป็นเพราะพระเจ้าต้องการให้เรามาพบกันหรือเปล่า แต่นั่นก็ไม่สำคัญเท่าตอนนี้เราได้รู้จักกันหรอกครับ
+                                                    </p>
+                                                </div>
+                                                <div v-if="textstory == 15">
+                                                    <p class="text-secondary idfont font-weight-bold">
+                                                        เพราะมีคาสุจังที่ทั้งสดใสและน่ารักแบบนี้ทำให้ผมยังสามารถมีชีวิตอยู่ในทุกวันนี้ <br/><br/>
+                                                    </p>
+                                                </div>
+                                                <div v-if="textstory == 16">
+                                                    <p class="text-secondary longtextfont font-weight-bold">
+                                                        ผมชอบเธอมากๆเลยนะ คิดถึงเธอทุกเวลาที่เธอไม่มาสตรีมจนแทบจะเสียสติ เธอล่ะชอบผมบ้างไหม คิดถึงผมบ้างหรือเปล่า ผมอยากเจอเธอมากๆเลยนะ ผมไม่รู้จะจัดการความรู้สึกนี้ยังไงดี คาสุจังช่วยผมได้หรือเปล่า ?’ 
+                                                    </p>
+                                                </div>
+                                                <div v-if="textstory == 18">
+                                                    <p class="text-secondary longtextfont font-weight-bold">
+                                                        แบบนี้น่ะน่ากลัวนะ.. อะฮะๆ… <br/><br/>
+                                                    </p>
+                                                </div>
+                                                
                                             </v-col>
                                         </v-row>
-                                        <v-row class="justify-end" v-if="this.textstory == 9 || this.textstory == 13">
+                                        <v-row class="justify-end">
                                         <v-col cols="12"></v-col>
                                         <v-btn
                                             class="mt-n10 mr-5"
@@ -416,7 +599,8 @@
                                 </v-col>
                             </v-row>
                         </v-img>
-                      
+                        
+                        
                         <v-img
                         v-if="this.textstory == 17 || this.textstory == 12"
                             height="470"
@@ -443,9 +627,14 @@
                                         </v-row>
                                         <v-row class="justify-center">
                                             <v-col cols="11" class="mt-2">
-                                                <div v-if="textstory == 17 || this.textstory == 12">
+                                                <div v-if=" this.textstory == 12">
                                                     <p class="text-secondary idfont font-weight-bold">
                                                         … <br/><br/>
+                                                    </p>
+                                                </div> 
+                                                <div v-if="textstory == 17 ">
+                                                    <p class="text-secondary idfont font-weight-bold">
+                                                        …เอ๊ะ? <br/><br/>
                                                     </p>
                                                 </div> 
                                                 
@@ -593,6 +782,7 @@
                             icon="mdi-chevron-right"
                             color="primary"
                             @click = "story()"
+                            v-if="this.postbutton == false"
                         >
                         </v-btn>
                     </v-row>
@@ -605,7 +795,7 @@
                     height="200"
                     src="@/assets/other/Spritebox_Small.png"
                     >
-                        <div v-if="textstory == 0 || textstory == 1 || textstory == 7 || textstory == 8 || textstory == 9 || textstory == 10 || textstory == 13">
+                        <div v-if="textstory == 0 || textstory == 1 || textstory == 7 || textstory == 8 || textstory == 9 || textstory == 10 || textstory == 18">
                             <v-img
                                 height="200"
                                 src="@/assets/mc/MC00.png"
@@ -623,22 +813,28 @@
                                 src="@/assets/mc/MC05.png"
                             />
                         </div>
-                        <div v-if="textstory == 11 || textstory == 12 || textstory == 17 || textstory == 18">
+                        <div v-if="textstory == 11 || textstory == 12 || textstory == 18 ">
                             <v-img
                                 height="200"
                                 src="@/assets/mc/MC08.png"
                             />
                         </div>
-                        <div v-if="textstory == 4 ">
+                        <div v-if="textstory == 4 || textstory == 14 || textstory == 15">
                             <v-img
                                 height="200"
                                 src="@/assets/mc/MC02.png"
                             />
                         </div>
-                        <div v-if="textstory == 14 || textstory == 15 || textstory == 16">
+                        <div v-if="textstory == 16 || textstory == 19">
                             <v-img
                                 height="200"
                                 src="@/assets/mc/MC03.png"
+                            />
+                        </div>
+                        <div v-if="textstory == 17">
+                            <v-img
+                                height="200"
+                                src="@/assets/mc/MC06.png"
                             />
                         </div>
                        
@@ -646,61 +842,88 @@
                 </v-col>
               </v-row>
           
-    
+    </v-responsive>
+    </v-container>
           
-        </v-responsive>
-        <v-responsive  v-if="this.textstory >= 19">
-            <v-row class="justify-center">
-                <v-col cols="10">
-                    <v-row class="justify-center mt-3">
-                        <v-img
-                        max-height="500"
-                        class="ml-5 mr-5" 
-                        src="@/assets/cutsence/CG06.jpg"
-                        />
-                    </v-row>
-                </v-col>
-                <v-col cols="6" class="mt-5">
-                    <v-row class="justify-center">
-                        <p>
-                        [หลังจากปิดไลฟ์ สตรีมเมอร์สาวโดนสตอล์กเกอร์ตามถึงบ้าน 
-                        </p>
-                    </v-row>
-                    <v-row class="justify-center">
-                        <p>
-                            และเกิดเรื่องที่ทำให้สตรีมเมอร์สาวได้หายไปจากช่องของเธอเป็นเวลานาน]
-                        </p>
-                    </v-row>
-                    
-                    <v-row class="justify-center">
-                        <p>
-                            [หลังจากนั้นหลายเดือนก็ยังหาตัวเธอไม่พบ..]
-                        </p>
-                    </v-row>
-                    <v-row class="justify-center">
-                        <p>
-                            END
-                        </p>
-                    </v-row>
-                    
-                    
-            
-                </v-col>
-            </v-row>
-        </v-responsive>
-      </v-container>
     </v-img>
+    </Transition>
+
+<Transition name="fade">
+    <v-img
+    v-if="componum == 0 && typepage == 2" 
+        cover
+        src="@/assets/background/Background4.jpg"
+    >
+    <v-container>
+    <v-responsive  v-if="this.textstory >= 19">
+        <v-row class="justify-center">
+            <v-col cols="10">
+                <v-row class="justify-center mt-3">
+                    <v-img
+                    max-height="500"
+                    class="ml-5 mr-5" 
+                    src="@/assets/cutsence/CG07.jpg"
+                    />
+                </v-row>
+            </v-col>
+            <v-col cols="6" class="mt-5">
+                <v-row class="justify-center">
+                    <p class="mt-2 idfont text-primary font-weight-bold">
+                        [หลังจากปิดไลฟ์ สตรีมเมอร์สาวได้ประกาศขอพักงานระยะยาวเพื่อจัดการกับ
+                    </p>
+                </v-row>
+                <v-row class="justify-center idfont">
+                    <p class="mt-1 idfont text-primary font-weight-bold">
+                        สตอล์กเกอร์ แอนตี้ และแฟนคลับที่คลั่งรักมากเกินจนทำให้เธอไม่สบายใจ]
+                    </p>
+                </v-row>
+                
+                <v-row class="justify-center">
+                    <p class="mt-1 idfont text-primary font-weight-bold">
+                        [ไม่รู้ว่าใช้เวลานานแค่ไหนกับเรื่องพวกนี้ แต่ก็จะพยายามรอจนถึงที่สุดอยู่ดี]
+                    </p>
+                </v-row>
+            
+                    <h2 class="test text-center mt-5 text-primary font-weight-bold">
+                        END
+                    </h2>
+               
+                
+                
+        
+            </v-col>
+        </v-row>
+    </v-responsive>
+  </v-container>
+</v-img>
+</Transition>
+
+    
     </div>
     </template>
     
     <script>
+     import sound1 from '@/assets/song/Labyrinth_In_The_Head.mp3'
+    import sound2 from '@/assets/song/Labyrinth.mp3'
+    import sound3 from '@/assets/song/Magical_Black_Cat.mp3'
+    
     export default {
         name : "Chapter5badcompo",
-
+        props: { mc_name: String },
         data() {
             return {
                 textstory : 0,
                 post : 0,
+        
+                chatnum: 0,
+                chatstory : 0,
+                postbutton: false,
+                componum: 0,
+                mcname : "",
+                player1 : new Audio(sound1),
+                player2 : new Audio(sound2),
+                player3 : new Audio(sound3),
+                typepage : 0,
                 folders: [
                 {
                     subtitle: 'วันนี้สตรีมเปิดของขวัญกับอ่านจดหมายปะ ถ้าถึงของเราต้องเขินมากแน่ ๆ เลย ฮือ',
@@ -739,33 +962,47 @@
                 },
     
       ],
-                folder1: [{
+                folder1: {
                     subtitle: 'หวังว่าเธอจะได้รับกำลังใจจากจดหมายของทุกคนนะ！',
                     title: 'MC',
-                    color: 'pink-accent-1',
+                    color: 'cyan-lighten-1',
                     like: 0,
                     report : 'primary'
-                }],
-                folder2: [{
-                    subtitle: 'เธอดูโปรจัง แถมยังสวยด้วย ',
+                },
+                folder2: {
+                    subtitle: 'อุตส่าห์ตั้งใจเขียนให้ขนาดนั้น ถ้ารีแอคไม่ดีจะโกรธจริง ๆ ด้วย',
                     title: 'MC',
-                    color: 'pink-accent-1',
+                    color: 'cyan-lighten-1',
                     like: 0,
                     report : 'primary'
-                }],
-                folder3: [{
+                },
+                folder3: {
                     subtitle: 'ยังไงเธอก็ต้องชอบจดหมายเราอยู่แล้ว แต่ถ้าไม่ชอบก็น่าจะรู้นะว่าจะโดนอะไร',
                     title: 'MC',
-                    color: 'pink-accent-1',
+                    color: 'cyan-lighten-1',
                     like: 0,
                     report : 'primary'
-                }],
+                },
             }
         },
         methods: {
             story(){
                 console.log(this.textstory);
                 this.textstory = this.textstory + 1
+                if(this.textstory == 2 ){
+                    this.postbutton = true
+                }
+                else if(this.textstory == 14 ){
+                    this.postbutton = false
+                }
+                else if(this.textstory == 4 ){
+                    this.typepage = 1
+                    
+                }
+                else if(this.textstory == 20 ){
+                    this.typepage = 2
+                    
+                }
             },
             likefuntion(like){
                 console.log(like);
@@ -797,46 +1034,96 @@
             postfuntion(num){
                 this.textstory = this.textstory + 1
                 if(num == 1){
-                    this.folders.push(this.folder1)
-                    this.post = 0
-                    let i = []
-                for (i = this.folders.length; i >= this.folders.length; i--) {
-                    if (this.folders[i].title == like.title) {
-                    this.folders = []
-                    console.log(this.folders[i].color)
-                    this.folders.push = this.folders[i]
+                
+                let i = []
+                let y = []
+                let c= []
+                let d= []
+                let b = this.folders.length - 1
+                this.folders.push(this.folders[b])
+                for (i = 0; i < this.folders.length; i++) {
+                y = i+1
+                if (i == 0) {
+                    let a = this.folders[i]
+                    c = this.folders[y]
+                    this.folders[i] = this.folder1
+                    this.folders[y] = a
+                console.log(this.folders[y])
+                
+                
+                }
+                else if(i >= 2 && y < this.folders.length){
+                    console.log(this.folders[y])
+                    d = this.folders[i]
+                    this.folders[i] = c
+                    c  = d
+                    console.log(this.folders[i])
                     
-                    }
-                    this.textstory = 5
+                }  
+                this.textstory = 3
+                this.post = 0
+            }
+            }
+            else if(num == 2){
+                let i = []
+                let y = []
+                let c= []
+                let d= []
+                let b = this.folders.length - 1
+                this.folders.push(this.folders[b])
+                for (i = 0; i < this.folders.length; i++) {
+                y = i+1
+                if (i == 0) {
+                    let a = this.folders[i]
+                    c = this.folders[y]
+                    this.folders[i] = this.folder2
+                    this.folders[y] = a
+                console.log(this.folders[y])
+                
+                
                 }
-                }
-                else if(num == 2){
-                    this.folders.push(this.folder2)
-                    this.post = 0
-                    for (i = this.folders.length; i >= this.folders.length; i--) {
-                    if (this.folders[i].title == like.title) {
-                    this.folders = []
-                    console.log(this.folders[i].color)
-                    this.folders.push = this.folders[i]
+                else if(i >= 2 && y < this.folders.length){
+                    console.log(this.folders[y])
+                    d = this.folders[i]
+                    this.folders[i] = c
+                    c  = d
+                    console.log(this.folders[i])
                     
+                }  
+                this.textstory = 3
+                this.post = 0
+            }
+            }
+            else if(num == 3){
+                let i = []
+                let y = []
+                let c= []
+                let d= []
+                let b = this.folders.length - 1
+                this.folders.push(this.folders[b])
+                for (i = 0; i < this.folders.length; i++) {
+                y = i+1
+                if (i == 0) {
+                    let a = this.folders[i]
+                    c = this.folders[y]
+                    this.folders[i] = this.folder3
+                    this.folders[y] = a
+                console.log(this.folders[y])
+                
+                
+                }
+                else if(i >= 2 && y < this.folders.length){
+                    console.log(this.folders[y])
+                    d = this.folders[i]
+                    this.folders[i] = c
+                    c  = d
+                    console.log(this.folders[i])
                     
-                    }
-                    this.textstory =5
-                }
-                }
-                else if(num == 3){
-                    this.folders.push(this.folder3)
-                    this.post = 0
-                    for (i = this.folders.length; i >= this.folders.length; i--) {
-                    if (this.folders[i].title == like.title) {
-                    this.folders = []
-                    console.log(this.folders[i].color)
-                    this.folders.push = this.folders[i]
-                    
-                    }
-                    this.textstory =5
-                }
-                }
+                }  
+                this.textstory = 3
+                this.post = 0
+            }
+            }
             },
         }
     }
@@ -844,5 +1131,23 @@
 
     </script>
     <style>
-    
+     .fade-enter-from{
+  opacity: 0;
+}
+.fade-enter-to{
+  opacity: 1;
+}
+
+.fade-enter-active{
+  transition: all 2s ease;
+}
+.idfont {
+    font-size: 17px;
+} 
+.longtextfont {
+    font-size: 16px;
+} 
+.test {
+    font-size: 20px;
+} 
     </style>
