@@ -320,19 +320,28 @@
     <Transition  name="fade">
     <compo5c :mc_name="mcname" v-if="componum == 1" />
     </Transition>
+    <Transition  name="fade">    
+    <compo5b :mc_name="mcname" v-if="componum == 2" />
+    </Transition>
+    <Transition  name="fade">
+    <compo5a :mc_name="mcname" v-if="componum == 3" />
+    </Transition>
     </div>
     </template>
     
     <script>
     import { useRouter } from 'vue-router';
-    // import compo5a from '@/components/Chapter5happycompo.vue'
-    // import compo5b from '@/components/Chapter5normalcompo.vue'
+    import compo5a from '@/components/Chapter5happycompo.vue'
+    import compo5b from '@/components/Chapter5normalcompo.vue'
+    import sound1 from '@/assets/song/Labyrinth_In_The_Head.mp3'
     import compo5c from '@/components/Chapter5badcompo.vue'
     export default {
         name : "Chapter4compo",
         props: { mc_name: String },
         components:{
             compo5c,
+            compo5b,
+            compo5a
         },
         
         data() {
@@ -342,6 +351,7 @@
                 router : useRouter(),
                 post : 0,
                 postbutton: false,
+                player1 : new Audio(sound1),
                 componum: 0,
                 mcname : "",
                 folders: [
@@ -384,21 +394,21 @@
                 ],
                 folder1: {
                     subtitle: 'สตรีมเมื่อคืนสนุกมากเลย อยากติดตามอีกคนขึ้นมาด้วยเลย หวังว่าจะเล่นด้วยกันอีกนะ',
-                    title: 'MC',
+                    title: this.mc_name,
                     color: 'cyan-lighten-1',
                     like: 0,
                     report : 'primary'
                 },
                 folder2: {
                     subtitle: 'ขอบคุณที่มาเล่นกับเธอนะ สนุกมากเลย',
-                    title: 'MC',
+                    title: this.mc_name,
                     color: 'cyan-lighten-1',
                     like: 0,
                     report : 'primary'
                 },
                 folder3: {
                     subtitle: 'แอบผิดหวังขึ้นมานิดหน่อย แต่ถ้าสนุกก็พอแล้ว',
-                    title: 'MC',
+                    title: this.mc_name,
                     color: 'cyan-lighten-1',
                     like: 0,
                     report : 'primary'
@@ -410,15 +420,20 @@
             story(){
                 this.textstory = this.textstory + 1
                 if(this.textstory == 9 && this.choice == 1){
-                    this.$router.push('/chapter5c')
+                    this.player1.pause()
+                    this.mcname = this.mc_name
+                    this.componum = 3
                 }
                 else if(this.textstory == 9 && this.choice == 2){
-                    this.$router.push('/chapter5b')
+                    this.player1.pause()
+                    this.mcname = this.mc_name
+                    this.componum = 2
                 }
                 else if(this.textstory == 2 ){
                     this.postbutton = true
                 }
                 else if(this.textstory == 9 && this.choice == 3){
+                    this.player1.pause()
                     this.mcname = this.mc_name
                     this.componum = 1
                 }
@@ -548,6 +563,20 @@
             }
             }
             },
+            loopsound()
+            {
+                    setTimeout(() => this.playsound(), 200000);
+
+                
+            },
+            playsound(){
+                    this.player1.play()
+                    this.loopsound()
+            }
+        },
+        created(){
+            this.playsound()
+            // this.player2.pause()
         }
     }
 

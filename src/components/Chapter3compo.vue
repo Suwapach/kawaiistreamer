@@ -303,7 +303,7 @@
                     >
                         <v-img
                             v-if="this.textstory == 4"
-                            height="470"
+                            height="500"
                             src="@/assets/kwaii/KS00.gif"
                         >
                             <v-col cols="12" class="mt-12"></v-col>
@@ -890,7 +890,7 @@
                     <v-row>
                         <v-col cols="12" class="ml-5 mt-1">
                             <div>
-                                <h2>
+                                <h2 class="text-white">
                                     Chat Comment
                                 </h2>
                             </div>  
@@ -899,38 +899,71 @@
                     <v-row class="justify-center mt-n3">
                         <v-col cols="11">
 
-                            <div v-if="this.chatstory >= 1 && this.chatnum > 0 && this.chatnum < 5">
+                            <div v-if="this.chatstory >= 1 && this.chatnum > 0 && this.chatnum < 5 ">
                                 <p>
                                     pewpew777  :   ไฮฮฮฮ
                                 </p>
-                            </div>    
-                            <div v-if="this.chatstory >= 1 && this.chatnum > 1 && this.chatnum < 6">
+                            </div>   
+                            <div v-if="this.chatstory == 1 && this.chatnum > 0 && this.chatnum < 2">
+                                <p>
+                                    <br/>
+                                </p>
+                            </div> 
+                            <div v-if="this.chatstory == 1 && this.chatnum > 0 && this.chatnum < 2">
+                                <p>
+                                    <br/>
+                                </p>
+                            </div> 
+                            <div v-if="this.chatstory == 1 && this.chatnum > 0 && this.chatnum < 2">
+                                <p>
+                                    <br/>
+                                </p>
+                            </div>   
+                            <div v-if="this.chatstory >= 1 && this.chatnum > 1  && this.chatnum < 6 ">
                                 <p>
                                     tsisonfire  :   HIIII HIIIIIIIIIIIIIIIII
                                 </p>
-                            </div>    
-                            <div v-if="this.chatstory >= 1 && this.chatnum > 2 && this.chatnum < 7">
+                            </div>   
+                            <div v-if="this.chatstory == 1 && this.chatnum > 0 && this.chatnum < 3">
+                                <p>
+                                    <br/>
+                                </p>
+                            </div> 
+                            <div v-if="this.chatstory == 1 && this.chatnum > 0 && this.chatnum < 3">
+                                <p>
+                                    <br/>
+                                </p>
+                            </div> 
+                              
+                            <div v-if="this.chatstory >= 1 && this.chatnum> 2&& this.chatnum < 7">
                                 <p>
                                     unchidaaaaaa  :   เล่นกับใครอาาา
 
                                 </p>
                             </div>
-                            <div v-if="this.chatstory >= 1 && this.chatnum > 3 && this.chatnum < 8">
+                             
+                            <div v-if="this.chatstory == 1 && this.chatnum > 0 && this.chatnum < 3">
+                                <p>
+                                    <br/>
+                                </p>
+                            </div> 
+                            
+                            <div v-if="this.chatstory >= 1 && this.chatnum > 3  && this.chatnum < 8 ">
                                 <p>
                                     ringo__  :   มาแล้วๆๆๆ
                                 </p>
                             </div> 
-                            <div v-if="this.chatstory >= 1 && this.chatnum > 4 && this.chatnum < 9">
+                            <div v-if="this.chatstory >= 1 && this.chatnum > 4  && this.chatnum < 9 ">
                                 <p>
                                     salaryman  :   โอ้ยตื่นเต้นมาก
                                 </p>
                             </div>  
-                            <div v-if="this.chatstory >= 1 && this.chatnum > 5 && this.chatnum < 10">
+                            <div v-if="this.chatstory >= 1 && this.chatnum > 5 && this.chatnum < 10 ">
                                 <p>
                                     kusogaki1234  :   ผู้ชาย ?????
                                 </p>
                             </div>                        
-                            <div v-if="this.chatstory >= 2 && this.chatnum > 6 && this.chatnum < 11">
+                            <div v-if="this.chatstory >= 2 && this.chatnum > 6  && this.chatnum < 11">
                                 <p>
                                     หมึกผัดไข่เค็ม  :   มีแพลนจะสตรีมงาโวแล้นมั้ยคับ
                                 </p>
@@ -945,17 +978,17 @@
                                     หมึกผัดไข่เค็ม  :   ซัมติงป่าวเตง😮 
                                 </p>
                             </div> 
-                            <div v-if="this.chatstory >= 3 && this.chatnum > 9 && this.chatnum < 14">
+                            <div v-if="this.chatstory >= 3 && this.chatnum> 9 && this.chatnum < 14">
                                 <p>
                                     มะง่วง  :   ????? อีกฝ่ายเป็นผู้ชายหรอ?
                                 </p>
                             </div> 
-                            <div v-if="this.chatstory >= 3 && this.chatnum > 10 && this.chatnum < 15">
+                            <div v-if="this.chatstory >= 3 && this.chatnum > 10 && this.chatnum< 15">
                                 <p>
                                     babyblue  :   น่ารักจัง 55555
                                 </p>
                             </div>
-                            <div v-if="this.chatstory >= 3 && this.chatnum > 11 && this.chatnum < 16">
+                            <div v-if="this.chatstory >= 3 && this.chatnum> 11 && this.chatnum < 16">
                                 <p>
                                     babyblue  :   สองคนนี้เป็นอะไรกันรึเปล่า 👀
                                 </p>
@@ -1055,28 +1088,403 @@
                                     ringo__  :   สองคนนี้อยู่ด้วยกันแล้วน่ารักอะ ฮื้อๆๆๆ
                                 </p>
                             </div> 
+                            <!-- <div v-if="this.mc_text == true && this.chatnum > this.mc_chatnum + 1 && this.mc_chatnum + 4 < 35">
+                                <p>
+                                    {{ mc_name }}  : 
+                                    <v-row class="ml-5 mt-n6 mb-n6">
+                                    <v-col 
+                                    v-for="n in emotesend"
+                                    :key="n.emotenum"
+                                    class="d-flex child-flex mt-n2"
+                                    cols="2"
+                            >
+                            
+                                            <v-img
+                                            v-if="n.emotenum == 1 && n.num <9 "
+                                                width="1"
+                                                src="@/assets/emote/emote01.png"       
+                                              
+                                            >
+                    
+                                            </v-img>
+                                            <v-img
+                                            v-if="n.emotenum == 2  && n.num <9"
+                                                width="1"
+                                                src="@/assets/emote/emote02.png"       
+                                              
+                                            >
+                    
+                                            </v-img>
+                                            <v-img
+                                            v-if="n.emotenum == 3  && n.num <9"
+                                                width="1"
+                                                src="@/assets/emote/emote03.png"       
+                                              
+                                            >
+                    
+                                            </v-img>
+                                            <v-img
+                                            v-if="n.emotenum == 4  && n.num <9"
+                                                width="1"
+                                                src="@/assets/emote/emote04.png"       
+                                               
+                                            >
+                    
+                                            </v-img>
+                                            <v-img
+                                            v-if="n.emotenum == 5  && n.num <9"
+                                                width="1"
+                                                src="@/assets/emote/emote05.png"       
+                                               
+                                            >
+                    
+                                            </v-img>
+                                            <v-img
+                                            v-if="n.emotenum == 6  && n.num <9"
+                                                width="1"
+                                                src="@/assets/emote/emote06.png"       
+                                              
+                                            >
+                    
+                                            </v-img>
+                                            <v-img
+                                            v-if="n.emotenum == 7  && n.num <9"
+                                                width="1"
+                                                src="@/assets/emote/emote07.png"       
+                                               
+                                            >
+                    
+                                            </v-img>
+                                            <v-img
+                                            v-if="n.emotenum == 8  && n.num <9"
+                                                width="1"
+                                                src="@/assets/emote/emote08.png"       
+                                               
+                                            >
+                    
+                                            </v-img>
+                                            <v-img
+                                            v-if="n.emotenum == 9  && n.num <9"
+                                                width="1"
+                                                src="@/assets/emote/emote09.png"       
+                                               
+                                            >
+                    
+                                            </v-img>
+                                            <v-img
+                                            v-if="n.emotenum == 10  && n.num <9"
+                                                width="1"
+                                                src="@/assets/emote/emote10.png"       
+                                               
+                                            >
+                    
+                                            </v-img>
+                                            <v-img
+                                            v-if="n.emotenum == 11  && n.num <9"
+                                                width="1"
+                                                src="@/assets/emote/emote11.png"       
+                                               
+                                            >
+                    
+                                            </v-img>
+                                            
+                            </v-col>
+                        </v-row> 
+                                </p>
+                            </div>  -->
                         </v-col>
                     </v-row>
                     <v-row class="justify-end" align-self="end">
-                        <v-btn
-                            class="ml-12"
-                            variant="text"
-                            icon="mdi-near-me"
-                            color="primary"
-                            size="x-large"
-                            @click = "story()"
-                        >
-                        </v-btn>
-                        <v-btn
-                            class="ml-n5 mr-5"
-                            variant="text"
-                            icon="mdi-emoticon-happy-outline"
-                            color="primary"
-                            size="x-large"
-                            @click = "story()"
-                        >
-                        </v-btn>
-                    </v-row>
+                      
+                   
+                       
+
+                      <v-btn
+                          class="ml-12 mt-n3"
+                          variant="text"
+                          icon="mdi-near-me"
+                          color="secondary"
+                          
+                          size="x-large"
+                          @click = "send()"
+                      >
+                      </v-btn>
+                      <v-menu
+                          v-model="menu"
+                          :close-on-content-click="false"
+                          location="top"
+                      >
+                          <template v-slot:activator="{ props }">
+                              <v-btn
+                              class="ml-n5 mr-5 mt-n3"
+                          variant="text"
+                          icon="mdi-emoticon-happy-outline"
+                          color="secondary"
+                          size="x-large"
+                              v-bind="props"
+                              
+                              >
+                              
+                              </v-btn>
+                          </template>
+
+                      <v-card min-width="300" class="ml-3 mr-3 mt-3">
+                  
+                              <v-row class="mt-1 ml-1 mr-1">
+                                  <v-col    
+                                  class="d-flex child-flex bg-startbuttonv"
+                                  cols="3"
+                                  >
+                                   
+                                          <v-img
+                                              width="1"
+                                              src="@/assets/emote/emote01.png"       
+                                             @click = " sendemote(1)"
+                                          >
+                  
+                                          </v-img>
+                                  </v-col>
+                                  <v-col    
+                                  class="d-flex child-flex bg-startbutton"
+                                  cols="3"
+                                  >
+                                  
+                                          <v-img
+                                              width="1"
+                                             
+                                              src="@/assets/emote/emote02.png"       
+                                             @click = " sendemote(2)"
+                                          >
+                  
+                                          </v-img>
+                                  </v-col>
+                                  <v-col    
+                                  class="d-flex child-flex bg-startbutton"
+                                  cols="3"
+                                  >
+                                  
+                                          <v-img
+                                              width="1"
+                                              src="@/assets/emote/emote03.png"       
+                                             @click = " sendemote(3)"
+                                          >
+                  
+                                          </v-img>
+                                  </v-col>
+                                  <v-col    
+                                  class="d-flex child-flex bg-startbutton"
+                                  cols="3"
+                                  >
+                                  
+                                          <v-img
+                                              width="1"
+
+                                              src="@/assets/emote/emote04.png"       
+                                             @click = " sendemote(4)"
+                                          >
+                  
+                                          </v-img>
+                                  </v-col>
+                                  <v-col    
+                                  class="d-flex child-flex bg-startbutton"
+                                  cols="3"
+                                  >
+                                  
+                                          <v-img
+                                              width="1"
+                                              src="@/assets/emote/emote05.png"       
+                                             @click = " sendemote(5)"
+                                          >
+                  
+                                          </v-img>
+                                  </v-col>
+                                  <v-col    
+                                  class="d-flex child-flex bg-startbutton"
+                                  cols="3"
+                                  >
+                                  
+                                          <v-img
+                                              width="1"
+                                              src="@/assets/emote/emote06.png"       
+                                             @click = " sendemote(6)"
+                                          >
+                  
+                                          </v-img>
+                                  </v-col>
+                                  <v-col    
+                                  class="d-flex child-flex bg-startbutton"
+                                  cols="3"
+                                  >
+                                  
+                                          <v-img
+                                              width="1"
+                                              src="@/assets/emote/emote07.png"       
+                                             @click = " sendemote(7)"
+                                          >
+                  
+                                          </v-img>
+                                  </v-col>
+                                  <v-col    
+                                  class="d-flex child-flex bg-startbutton"
+                                  cols="3"
+                                  >
+                                  
+                                          <v-img
+                                              width="1"
+                                              src="@/assets/emote/emote08.png"       
+                                             @click = " sendemote(8)"
+                                          >
+                  
+                                          </v-img>
+                                  </v-col>
+                                  <v-col    
+                                  class="d-flex child-flex bg-startbutton"
+                                  cols="3"
+                                  >
+                                  
+                                          <v-img
+                                              width="1"
+                                              src="@/assets/emote/emote09.png"       
+                                             @click = " sendemote(9)"
+                                          >
+                  
+                                          </v-img>
+                                  </v-col>
+                                  <v-col    
+                                  class="d-flex child-flex bg-startbutton"
+                                  cols="3"
+                                  >
+                                  
+                                          <v-img
+                                              width="1"
+                                              src="@/assets/emote/emote10.png"       
+                                             @click = " sendemote(10)"
+                                          >
+                  
+                                          </v-img>
+                                  </v-col>
+                                  <v-col    
+                                  class="d-flex child-flex bg-startbutton"
+                                  cols="3"
+                                  >
+                                  
+                                          <v-img
+                                              width="1"
+                                              src="@/assets/emote/emote11.png"       
+                                             @click = " sendemote(11)"
+                                          >
+                  
+                                          </v-img>
+                                  </v-col>
+                              </v-row>
+                           
+                    
+      
+
+    </v-card>
+          </v-menu>
+
+                  </v-row>
+                  <v-row class="justify-start mt-n12 ml-2" v-if="this.emotetext == true">
+                    
+                          <v-col 
+                                  v-for="n in emotesend"
+                                  :key="n.emotenum"
+                                  class="d-flex child-flex mt-n2"
+                                  cols="1"
+                          >
+                          
+                                          <v-img
+                                          v-if="n.emotenum == 1 && n.num <9 "
+                                              width="1"
+                                              src="@/assets/emote/emote01.png"       
+                                            
+                                          >
+                  
+                                          </v-img>
+                                          <v-img
+                                          v-if="n.emotenum == 2  && n.num <9"
+                                              width="1"
+                                              src="@/assets/emote/emote02.png"       
+                                            
+                                          >
+                  
+                                          </v-img>
+                                          <v-img
+                                          v-if="n.emotenum == 3  && n.num <9"
+                                              width="1"
+                                              src="@/assets/emote/emote03.png"       
+                                            
+                                          >
+                  
+                                          </v-img>
+                                          <v-img
+                                          v-if="n.emotenum == 4  && n.num <9"
+                                              width="1"
+                                              src="@/assets/emote/emote04.png"       
+                                             
+                                          >
+                  
+                                          </v-img>
+                                          <v-img
+                                          v-if="n.emotenum == 5  && n.num <9"
+                                              width="1"
+                                              src="@/assets/emote/emote05.png"       
+                                             
+                                          >
+                  
+                                          </v-img>
+                                          <v-img
+                                          v-if="n.emotenum == 6  && n.num <9"
+                                              width="1"
+                                              src="@/assets/emote/emote06.png"       
+                                            
+                                          >
+                  
+                                          </v-img>
+                                          <v-img
+                                          v-if="n.emotenum == 7  && n.num <9"
+                                              width="1"
+                                              src="@/assets/emote/emote07.png"       
+                                             
+                                          >
+                  
+                                          </v-img>
+                                          <v-img
+                                          v-if="n.emotenum == 8  && n.num <9"
+                                              width="1"
+                                              src="@/assets/emote/emote08.png"       
+                                             
+                                          >
+                  
+                                          </v-img>
+                                          <v-img
+                                          v-if="n.emotenum == 9  && n.num <9"
+                                              width="1"
+                                              src="@/assets/emote/emote09.png"       
+                                             
+                                          >
+                  
+                                          </v-img>
+                                          <v-img
+                                          v-if="n.emotenum == 10  && n.num <9"
+                                              width="1"
+                                              src="@/assets/emote/emote10.png"       
+                                             
+                                          >
+                  
+                                          </v-img>
+                                          <v-img
+                                          v-if="n.emotenum == 11  && n.num <9"
+                                              width="1"
+                                              src="@/assets/emote/emote11.png"       
+                                             
+                                          >
+                  
+                                          </v-img>
+                                          
+                          </v-col>
+                          </v-row>
                     
                     </v-img>
                         
@@ -1151,6 +1559,13 @@
                 player1 : new Audio(sound1),
                 player2 : new Audio(sound2),
                 typepage : 0,
+                mc_num:0,
+                mc_chatnum:0,
+                mc_text: false,
+                emotesend: [],
+                emotearraynum : 0,
+                emotetext : true,
+                menu: false,
                 folders: [
                 {
                     subtitle: 'น่ารักจนอยากกินเข้าไปเลย',
@@ -1191,21 +1606,21 @@
             ],
                 folder1: {
                     subtitle: 'คอแลปวันนี้ต้องสนุกแน่ๆ รอไม่ไหวแล้ว !',
-                    title: 'MC',
+                    title: this.mc_name,
                     color: 'cyan-lighten-1',
                     like: 0,
                     report : 'primary'
                 },
                 folder2: {
                     subtitle: 'คอแลปหรอ กับใครก็ได้แหละแค่ขอได้เห็นเธอก็พอ',
-                    title: 'MC',
+                    title: this.mc_name,
                     color: 'cyan-lighten-1',
                     like: 0,
                     report : 'primary'
                 },
                 folder3: {
                     subtitle: 'วันนี้มีคอแลปหรอ จะเป็นใครนะ ไม่อยากให้เป็นผู้ชายเลย',
-                    title: 'MC',
+                    title: this.mc_name,
                     color: 'cyan-lighten-1',
                     like: 0,
                     report : 'primary'
@@ -1422,38 +1837,38 @@
                     this.chatnum = this.chatnum + 1
                     setTimeout(() => this.sendtext(), 1000);
                 }
-                else if(this.chatstory == 2 && this.chatnum <= 8){
+                else if(this.chatstory == 2 && this.chatnum <= 8+this.mc_num){
                     
                     this.chatnum = this.chatnum + 1
                     setTimeout(() => this.sendtext(), 500);
                 }
-                else if(this.chatstory == 3 && this.chatnum <= 12){
+                else if(this.chatstory == 3 && this.chatnum <= 12+this.mc_num){
                     this.chatnum = this.chatnum + 1
                     setTimeout(() => this.sendtext(), 3000);
                 }
-                else if(this.chatstory == 4 && this.chatnum <= 15){
+                else if(this.chatstory == 4 && this.chatnum <= 15+this.mc_num){
                     this.chatnum = this.chatnum + 1
                     setTimeout(() => this.sendtext(), 3000);
                 }
-                else if(this.chatstory == 5 && this.chatnum <= 18){
+                else if(this.chatstory == 5 && this.chatnum <= 18+this.mc_num){
                     this.chatnum = this.chatnum + 1
                     setTimeout(() => this.sendtext(), 500);
                 }
-                else if(this.chatstory == 6 && this.chatnum <= 23){
+                else if(this.chatstory == 6 && this.chatnum <= 23+this.mc_num){
                     this.chatnum = this.chatnum + 1
                     setTimeout(() => this.sendtext(), 500);
                 }
-                else if(this.chatstory == 7 && this.chatnum <= 26){
+                else if(this.chatstory == 7 && this.chatnum <= 26+this.mc_num){
                     this.chatnum = this.chatnum + 1
                     setTimeout(() => this.sendtext(), 3000);
                 }
-                else if(this.chatstory == 8 && this.chatnum <= 28){
+                else if(this.chatstory == 8 && this.chatnum <= 28+this.mc_num){
                     this.chatnum = this.chatnum + 1
                     setTimeout(() => this.sendtext(), 3000);
                 }
-                else if(this.chatstory == 9 && this.chatnum <= 30){
+                else if(this.chatstory == 9 && this.chatnum <= 30+this.mc_num){
                     this.chatnum = this.chatnum + 1
-                    setTimeout(() => this.sendtext(), 3000);
+                    setTimeout(() => this.sendtext(), 3000+this.mc_num);
                 }
             },
             sendtext() {
@@ -1462,13 +1877,34 @@
                     setTimeout(() => this.chattext(), 500);
                 }
             },
+            send() {
+                this.mc_num = 3
+                this.chatnum = this.chatnum + 3
+                this.emotetext = false
+                this.mc_text = true
+                this.mc_chatnum = this.chatnum
+            },
+            sendemote(num) {
+                console.log("test")
+                let a = {emotenum : num,
+                        num : this.emotearraynum}
+                if(this.emotearraynum <= 4){
+                    console.log(this.emotearraynum)
+                    
+                this.emotesend.push(a)
+                console.log(this.emotesend)
+                this.emotearraynum = this.emotearraynum + 1
+                }
+            },
             loopsound()
             {
                 if(this.soundtype == 0){
-                    setTimeout(() => this.playsound(), 135000);
+                    this.player2.pause()
+                    setTimeout(() => this.playsound(), 200000);
                 }
                 else if(this.soundtype == 1){
-                    // setTimeout(() => this.playsound(), 122000);
+                    this.player1.pause()
+                    setTimeout(() => this.playsound(), 200000);
                 }
                 
             },

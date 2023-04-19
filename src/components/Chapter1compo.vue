@@ -2041,10 +2041,12 @@
             loopsound()
             {
                 if(this.soundtype == 0){
-                    setTimeout(() => this.playsound(), 125000);
+                    this.player2.pause()
+                    setTimeout(() => this.playsound(), 200000);
                 }
                 else if(this.soundtype == 1){
-                    setTimeout(() => this.playsound(), 112000);
+                    this.player1.pause()
+                    setTimeout(() => this.playsound(), 200000);
                 }
                 
             },
